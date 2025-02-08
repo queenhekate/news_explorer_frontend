@@ -1,3 +1,27 @@
-.main{
-    background-image: url("../../assets/background.png");
-}
+.main {
+    background-image: url('../../assets/background.png'); /* Check the relative path */
+    background-size: cover; /* Ensures the image covers the entire element */
+    background-position: center center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    padding-top: 80px;  /* Adjust this value based on your navbar's height */
+    color: white;
+    width: 100%;
+    max-height: auto;
+  }
+
+  .main__content {
+    padding: 0;
+    max-width: 608px;
+  margin: 100px auto 80px;
+  }
+
+  .main__title {
+    padding: 0;
+    margin: 0;
+  }
+
+  .main__description{
+    padding: 0;
+    margin: 0;
+  }
+  

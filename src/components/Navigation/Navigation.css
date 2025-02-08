@@ -1,20 +1,54 @@
 .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;  /* This will space out the navbar items */
     align-items: center;
-}
+    padding: 30px 104px 26px;
+    z-index: 10;  /* Higher z-index ensures navbar is above the background */
+    background-color: transparent;
+    color: white;
+   max-width: 1360px;
+   max-height: 80px;
+   border-bottom: solid #C4C4C4 1px;
+  }
 
-.navigation__user {
+  .navigation__logo {
+color: white;
+  }
+  
+  .navigation__user {
     display: flex;
-    gap: 12px;
-}
-
-.navigation__home {
+    gap: 42px;
+  }
+  
+  .navigation__home {
+    color: white;
     border: none;
     background-color: transparent;
-}
-
-.navigation__signin {
+    font-size: 16px; /* Adjust text size */
+    cursor: pointer;
+  }
+  
+  .navigation__signin {
+    color: white;
     background-color: transparent;
-    border-radius: 10px;
-}
+    border-radius: 100px;
+    padding: 8px 16px; /* Adds padding for better button size */
+    border: 2px solid white; /* Adds a border to make the button visible */
+    font-size: 16px; /* Ensures text size matches the Home button */
+    cursor: pointer;
+    width: 176px;
+    height: 48px;
+  }
+  
+  .navigation__home:hover,
+  .navigation__signin:hover {
+    color: #007BFF; /* Changes text color on hover */
+  }
+  
+  .navigation__signin:hover {
+    background-color: rgba(0, 123, 255, 0.1); /* Adds a subtle background on hover */
+  }
