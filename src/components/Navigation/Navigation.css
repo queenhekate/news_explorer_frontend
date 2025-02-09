@@ -1,41 +1,13 @@
-.navigation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: space-between;  /* This will space out the navbar items */
-  align-items: center;
-  padding: 30px 104px 26px;
-  z-index: 10;  /* Higher z-index ensures navbar is above the background */
-  background-color: transparent;
-  color: white;
-  width: 100%;  /* Ensure it covers the full width of the screen */
-  height: 80px;  /* Fixed height */
-  border-bottom: solid #C4C4C4 1px;
-  text-align: center;
-  box-sizing: border-box;  /* Ensures padding doesn't mess with width/height */
-}
-
-/* Styling for the logo */
-.navigation__logo {
-  color: white;
-  font-family: 'Roboto-Slab';
-font-weight: 700;
-font-size: 20px;
-line-height: 24px;
-letter-spacing: 0px;
-}
-
 /* User area layout */
-.navigation__user {
+.navigation {
   display: flex;
   gap: 42px;
-  font-family: 'Roboto';
-font-weight: 500;
-font-size: 18px;
-line-height: 24px;
-letter-spacing: 0px;
-text-align: center;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
 }
 
 /* Home button styling */
@@ -43,7 +15,6 @@ text-align: center;
   color: white;
   border: none;
   background-color: transparent;
-  font-size: 16px;  /* Adjust text size */
   cursor: pointer;
 }
 
@@ -52,9 +23,8 @@ text-align: center;
   color: white;
   background-color: transparent;
   border-radius: 100px;
-  padding: 8px 16px;  /* Adds padding for better button size */
-  border: 2px solid white;  /* Adds a border to make the button visible */
-  font-size: 16px;  /* Ensures text size matches the Home button */
+  padding: 8px 16px; /* Adds padding for better button size */
+  border: 2px solid white; /* Adds a border to make the button visible */
   cursor: pointer;
   width: 176px;
   height: 48px;
@@ -63,10 +33,29 @@ text-align: center;
 /* Hover effect for Home button */
 .navigation__home:hover,
 .navigation__signin:hover {
-  color: #007BFF;  /* Changes text color on hover */
+  color: #007bff; /* Changes text color on hover */
 }
 
 /* Hover effect for Sign-in button */
 .navigation__signin:hover {
-  background-color: rgba(0, 123, 255, 0.1);  /* Adds a subtle background on hover */
+  background-color: rgba(
+    0,
+    123,
+    255,
+    0.1
+  ); /* Adds a subtle background on hover */
+}
+
+@media (max-width: 768px) and (min-width: 321px) {
+  /* Your styles for screens between 768px and 321px go here */
+  .navigation__user {
+    font-size: 16px;  /* Example of a style */
+  }
+}
+
+@media (max-width: 320px) {
+  /* Your styles for screens 320px and below go here */
+  .navigation__user {
+    font-size: 14px;  /* Example of a style */
+  }
 }

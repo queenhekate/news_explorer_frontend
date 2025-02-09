@@ -23,7 +23,7 @@ function SearchForm() {
           type="text"
           value={searchQuery}
           onChange={handleInputChange}
-          placeholder="Search..."
+          placeholder="Enter topic"
           className="searchForm__input"
         />
         <button type="submit" className="searchForm__button">
@@ -31,11 +31,10 @@ function SearchForm() {
         </button>
       </form>
       <div className="searchForm__results">
-        {/* Here you can display search results */}
-        <p>Your search query: {searchQuery}</p>
+
       </div>
     </div>
   );
-};
+}
 
 export default SearchForm;

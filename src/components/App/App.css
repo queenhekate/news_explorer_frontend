@@ -4,16 +4,15 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   height: 100%;
-  font-family: 'Roboto', 'Roboto-Slab', 'Inter', sans-serif;
+  font-family: "Roboto", "Roboto-Slab", "Inter", sans-serif;
 }
 
 .page {
-  background-color: #FFFFFF;
-  
+  background-color: #ffffff;
 }
 
 .page__content {
-  
 }

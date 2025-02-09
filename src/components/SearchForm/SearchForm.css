@@ -1,35 +1,46 @@
+.searchForm {
+  position: relative;  /* Create a positioning context for the button */
+  width: 100%;         /* The width of the search bar (or adjust as needed) */
+  max-width: 608px;
+}
+
 .searchForm__input {
-    padding: 10px;
-    width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: 'Roboto';
-font-weight: 500;
-font-size: 18px;
-line-height: 24px;
-letter-spacing: 0px;
-text-align: center;
+  width: 608px;
+  border: 1px solid #ccc;
+  border-radius: 100px;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  height: 64px;
+  width: 100%;         /* Makes the input take full width of its container */
+  padding: 10px 40px 10px 10px; 
+  box-sizing: border-box
+}
 
-  }
-  
-  .searchForm__button {
-    padding: 10px 20px;
-    margin-left: 10px;
-    background-color: #2F71E5;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: 'Roboto';
-font-weight: 500;
-font-size: 18px;
-line-height: 24px;
-letter-spacing: 0px;
-text-align: center;
+.searchForm__button {
+  background-color: #2f71e5;
+  color: white;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  width: 160px;
+  height: 64px;
+  position: absolute;
+  right: 0px;         /* Positions the button to the right inside the container */
+  top: 38%;            /* Vertically center the button */
+  transform: translateY(-50%);
+}
 
-  }
-  
-  .searchForm__results {
-    margin-top: 20px;
-    font-size: 18px;
-  }
+.searchForm__results {
+  margin-top: 20px;
+  font-size: 18px;
+}
