@@ -1,5 +1,5 @@
+import "./SearchForm.css";
 import React, { useState } from "react";
-import './SearchForm.css'; // Assuming your styles are in App.css
 
 function SearchForm() {
   // State to hold the search query
@@ -36,6 +36,6 @@ function SearchForm() {
       </div>
     </div>
   );
-}
+};
 
 export default SearchForm;
