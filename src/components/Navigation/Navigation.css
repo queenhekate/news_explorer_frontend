@@ -47,6 +47,10 @@
   height: auto;
 }
 
+.navigation__close-image {
+
+}
+
 /* Dropdown menu (hidden by default) */
 .navigation__dropdown-content {
   position: absolute;
