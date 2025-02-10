@@ -1,0 +1,49 @@
+.about {
+  display: flex;
+  color: #1a1b22;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1440px;
+  
+}
+
+.about__photo-container {
+  width: 464px; /* Set the container width */
+  height: 464px; /* Set the container height to match the width */
+  border-radius: 50%; /* Make the container round */
+  overflow: hidden; /* Hide any overflowed image parts */
+  margin: 80px auto; /* Center it with a top and bottom margin */
+  display: flex; /* Optional: If you need to center the content within the container */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.about__photo {
+  width: 100%; /* Ensure the image fills the container */
+  height: 100%; /* Ensure the image fills the container */
+  object-fit: cover; /* Crop and scale the image to cover the container */
+}
+
+.about__text {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-right: 10%;
+}
+
+.about__heading {
+  font-family: "Roboto-Slab";
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+  letter-spacing: 0px;
+}
+
+.about__description {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+}

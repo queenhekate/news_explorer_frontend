@@ -1,0 +1,26 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Roboto";
+  font-weight: 400;
+  letter-spacing: 0px;
+  height: 80px;
+  align-items: center;
+  padding: 0 100px;
+}
+
+.footer__copyright {
+  color: #B6BCBF;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.footer__links {
+  display: flex;
+  color: #1a1b22;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  gap: 40px;
+}
