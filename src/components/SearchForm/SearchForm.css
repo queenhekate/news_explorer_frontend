@@ -1,11 +1,11 @@
 .searchForm {
-  position: relative;  /* Create a positioning context for the button */
-  width: 100%;         /* The width of the search bar (or adjust as needed) */
+  position: relative; /* Create a positioning context for the button */
+  width: 100%; /* The width of the search bar (or adjust as needed) */
   max-width: 608px;
 }
 
 .searchForm__input {
-  width: 608px;
+  width: 90%;
   border: 1px solid #ccc;
   border-radius: 100px;
   font-family: "Roboto";
@@ -13,11 +13,11 @@
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 0px;
-  text-align: center;
+  text-align: left;
   height: 64px;
-  width: 100%;         /* Makes the input take full width of its container */
-  padding: 10px 40px 10px 10px; 
-  box-sizing: border-box
+  width: 100%; /* Makes the input take full width of its container */
+  padding: 10px 40px 10px 30px;
+  box-sizing: border-box;
 }
 
 .searchForm__button {
@@ -35,12 +35,32 @@
   width: 160px;
   height: 64px;
   position: absolute;
-  right: 0px;         /* Positions the button to the right inside the container */
-  top: 38%;            /* Vertically center the button */
+  right: 0px; /* Positions the button to the right inside the container */
+  top: 50%; /* Vertically center the button */
   transform: translateY(-50%);
 }
 
-.searchForm__results {
-  margin-top: 20px;
-  font-size: 18px;
+@media (max-width: 800px) {
+  /* Your styles for screens between 768px and 321px go here */
+}
+
+@media (max-width: 460px) {
+  .searchForm {
+    max-width: 100%; /* Make the form take up full width of the screen */
+    padding: 0 16px; /* Add some padding for small screens */
+  }
+
+  .searchForm__input {
+    width: 100%; /* Ensure input takes up full width */
+    padding: 10px 20px; /* Adjust padding for smaller screens */
+    height: 56px;
+  }
+
+  .searchForm__button {
+    position: relative; /* Reset position */
+    width: 100%; /* Make the button take full width */
+    height: 56px; /* Adjust the height for smaller screens */
+    margin-top: 10px; /* Adds spacing between input and button */
+    transform: none; /* No need to vertically center the button */
+  }
 }

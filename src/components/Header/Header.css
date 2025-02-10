@@ -44,5 +44,10 @@
     max-width: 460px;
     min-width: 320px;
     height: 56px;
+    padding: 16px;
+  }
+  .header__logo {
+    margin-left: 16px;
+    z-index: 100;
   }
 }
