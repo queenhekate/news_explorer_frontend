@@ -13,7 +13,8 @@ function About() {
           Hello, I'm Johanna Schnell, a web developer skilled in technologies
           like HTML, CSS, JavaScript, React, and Node.js. I gained valuable
           experience at TripleTen, where I worked on full-stack projects and
-          refined my problem-solving and development skills. I'm passionate
+          refined my problem-solving and development skills.<br />
+          <br />I'm passionate
           about helping clients bring their ideas to life with clean, efficient
           code and user-friendly web solutions. Let’s collaborate and build
           something great!

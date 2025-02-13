@@ -1,7 +1,4 @@
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
   display: flex;
   justify-content: space-between; /* This will space out the navbar items */
   align-items: center;

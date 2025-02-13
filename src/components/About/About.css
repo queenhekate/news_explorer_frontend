@@ -4,24 +4,28 @@
   justify-content: space-around;
   align-items: center;
   max-width: 1440px;
-  
+  gap: 56px;
+  margin: 0 auto;
+  padding: 16px;
 }
 
 .about__photo-container {
-  width: 464px; /* Set the container width */
-  height: 464px; /* Set the container height to match the width */
-  border-radius: 50%; /* Make the container round */
-  overflow: hidden; /* Hide any overflowed image parts */
-  margin: 80px auto; /* Center it with a top and bottom margin */
-  display: flex; /* Optional: If you need to center the content within the container */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  width: 50%;
+  max-width: 424px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+  margin: 80px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about__photo {
-  width: 100%; /* Ensure the image fills the container */
-  height: 100%; /* Ensure the image fills the container */
-  object-fit: cover; /* Crop and scale the image to cover the container */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .about__text {
@@ -29,7 +33,6 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-right: 10%;
 }
 
 .about__heading {
@@ -46,4 +49,28 @@
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 0px;
+}
+
+@media (max-width: 800px) {
+  .about__photo-container {
+    width: 232px;
+    height: 232px;
+  }
+  .about__text {
+    width: 424px;
+  }
+  .about__heading {
+    font-size: 30x;
+  }
+}
+
+@media (max-width: 460px) {
+  .about {
+    flex-direction: column;
+    margin: 0 16px;
+  }
+  .about__photo-container {
+    width: 272px; /* Set the container width */
+    height: 272px; /* Set the container height to match the width */
+  }
 }
