@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Main.css";
 import SearchForm from "../SearchForm/SearchForm";
+import NewsCard from "../NewsCard/NewsCard";
 
 function Main({handleSearch, newsData }) {
   return (
