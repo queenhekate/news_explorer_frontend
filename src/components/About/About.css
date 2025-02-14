@@ -10,9 +10,8 @@
 }
 
 .about__photo-container {
-  width: 50%;
-  max-width: 424px;
-  height: auto;
+  width: 424px;
+  height: 424px;
   border-radius: 50%;
   object-fit: cover;
   overflow: hidden;
@@ -68,6 +67,9 @@
   .about {
     flex-direction: column;
     margin: 0 16px;
+  }
+  .about__text {
+    width: 288px;
   }
   .about__photo-container {
     width: 272px; /* Set the container width */

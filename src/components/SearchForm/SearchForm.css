@@ -19,6 +19,7 @@
   width: 100%; /* Makes the input take full width of its container */
   padding: 10px 40px 10px 30px;
   box-sizing: border-box;
+  outline: none;
 }
 
 .searchForm__button {
@@ -36,7 +37,7 @@
   width: 160px;
   height: 64px;
   position: absolute;
-  right: 0px; /* Positions the button to the right inside the container */
+  right: 0; /* Positions the button to the right inside the container */
   top: 50%; /* Vertically center the button */
   transform: translateY(-50%);
 }

@@ -1,7 +1,7 @@
 import "./SearchForm.css";
 import React, { useState } from "react";
 
-function SearchForm() {
+function SearchForm({onSearch}) {
   // State to hold the search query
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -13,6 +13,7 @@ function SearchForm() {
   // Function to handle form submit (optional)
   const handleSearchSubmit = (e) => {
     e.preventDefault(); // Prevent form reload
+    fetch(`https://newsapi.org/v2/everything/${searchQuery}`, {method: "GET"}).then((res) => res.json().then((data) => {console.log(data), onSearch(data)}))
     alert("Search submitted for: " + searchQuery); // You can replace this with actual search logic
   };
 

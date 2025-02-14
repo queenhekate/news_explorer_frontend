@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Main.css";
 import SearchForm from "../SearchForm/SearchForm";
 
-function Main() {
+function Main({handleSearch, newsData }) {
   return (
     <div className="main">
       <div className="main__content">
@@ -11,7 +11,8 @@ function Main() {
           Find the latest news on any topic and save them in your personal
           account
         </p>
-        <SearchForm />
+        <SearchForm onSearch={handleSearch} />
+        <NewsCard />
       </div>
     </div>
   );
