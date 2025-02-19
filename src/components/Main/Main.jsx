@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Main.css";
 import SearchForm from "../SearchForm/SearchForm";
 import NewsCard from "../NewsCard/NewsCard";
+import Preloader from "../Preloader/Preloader";
+import IsLoadingContext from "../context/IsLoadingContext";
 
-function Main({handleSearch, newsData }) {
+function Main({ handleSearch, newsData }) {
+  const { isLoading } = useContext(IsLoadingContext);
   return (
     <div className="main">
       <div className="main__content">
@@ -13,7 +16,7 @@ function Main({handleSearch, newsData }) {
           account
         </p>
         <SearchForm onSearch={handleSearch} />
-        <NewsCard />
+        {isLoading === false ? <NewsCard /> : <Preloader />}
       </div>
     </div>
   );

@@ -5,3 +5,14 @@ export const newsData = [
     { title: "AI Revolution: The Future of Tech", description: "Artificial Intelligence is changing the world at a fast pace.", image: "https://via.placeholder.com/150" },
     { title: "Web Development: A Beginner's Guide", description: "An easy guide to get started with web development.", image: "https://via.placeholder.com/150" },
   ];
+
+  export const apiKey = "eeba31b13c6a4b148448fe6a9a67f230" 
+
+  export const checkResponse = (res) => {
+    if (res.ok){
+      return res.json();
+    }
+    return Promise.reject(res.error)
+  }
+
+  export const baseURL = "http://localhost:3001";

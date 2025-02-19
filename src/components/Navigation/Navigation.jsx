@@ -3,6 +3,7 @@ import "./Navigation.css";
 import dropdownIcon from "../../assets/menu.png";
 import ReusableButton from "../ReuseableButton/ReusableButton";
 import closeIcon from "../../assets/close.png";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,12 +29,20 @@ function Navigation() {
     };
   }, []);
 
+const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+
   return (
     <div className="navigation">
       <div className="navigation__buttons">
-        <ReusableButton text="Home" className="navigation__home" />
-        <ReusableButton text="Sign In" className="navigation__signin" />
+        <a href="/"> <ReusableButton text="Home" className="navigation__home" /></a>
+        <ReusableButton text="Sign In" className="navigation__signin" onClick={openModal}/> 
       </div>
+
+      <ModalWithForm isOpen={isModalOpen} closeModal={closeModal} />
 
       {/* Dropdown Menu Button for Small Screens */}
       <button className="navigation__dropdown" onClick={toggleDropdown}>

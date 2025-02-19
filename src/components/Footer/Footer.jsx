@@ -11,7 +11,7 @@ function Footer() {
             </div>
             <div className="footer__links-img">
             <div className="footer__gitHub">Git</div>
-            <div className="footer__facebook">FB</div>
+            <div className="footer__facebook">LI</div>
             </div>
         </div>
 
