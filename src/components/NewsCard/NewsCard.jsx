@@ -1,30 +1,32 @@
 import React, { useState } from "react";
 import "./NewsCard.css";
 import Card from "../Card/Card";
+import Photo1 from "../../assets/baby-photo-1.jpg";
+import Photo2 from "../../assets/baby-photo-2.jpg";
+import Photo3 from "../../assets/baby-photo-3.jpg";
 
 function NewsCard() {
-
-    const cards = [
-        {
-          id: 1,
-          title: 'Card 1',
-          description: 'This is the description of card 1.',
-          imageUrl: 'https://via.placeholder.com/150',
-        },
-        {
-          id: 2,
-          title: 'Card 2',
-          description: 'This is the description of card 2.',
-          imageUrl: 'https://via.placeholder.com/150',
-        },
-        {
-          id: 3,
-          title: 'Card 3',
-          description: 'This is the description of card 3.',
-          imageUrl: 'https://via.placeholder.com/150',
-        },
-        // Add more cards here
-      ];
+  const cards = [
+    {
+      id: 1,
+      title: "Card 1",
+      description: "This is the description of card 1.",
+      imageUrl: { Photo1 },
+    },
+    {
+      id: 2,
+      title: "Card 2",
+      description: "This is the description of card 2.",
+      imageUrl: { Photo2 },
+    },
+    {
+      id: 3,
+      title: "Card 3",
+      description: "This is the description of card 3.",
+      imageUrl: { Photo3 },
+    },
+    // Add more cards here
+  ];
 
   return (
     <div className="newsCard">

@@ -66,8 +66,8 @@ const LoginModal = () => {
           <div>
       <p>
         or <a href="#" onClick={handleOpenModal}>Sign Up</a>
-      </p>
       {showModal && <RegisterModal />}
+      </p>
     </div>
         </form>
       </div>
