@@ -14,10 +14,14 @@ function App({}) {
   const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
- const [activeModal, setActiveModal] = useState("");
- 
- const handleLoginModal = () => handleOpenModal("login")
- 
+  const [activeModal, setActiveModal] = useState("");
+
+  const handleLoginModal = () => handleOpenModal("login");
+  const handleAltClick = () => {
+    if (activeModal === "login") {
+      handleOpenModal("login");
+    }
+  };
 
   useEffect(() => {
     // Simulate an API call with setTimeout
@@ -26,9 +30,9 @@ function App({}) {
     }, 2000); // 2 seconds delay to simulate loading
   }, []);
 
-const handleOpenModal = (modal) => {
-setActiveModal(modal) 
-  }
+  const handleOpenModal = (modal) => {
+    setActiveModal(modal);
+  };
 
   const fetchData = async () => {
     // Simulate fetching data
@@ -60,10 +64,12 @@ setActiveModal(modal)
             <About />
             <SavedNews />
             <Footer />
-            { activeModal==="login"&&(
-            <LoginModal 
-            isOpen={handleLoginModal}/>
-          )}
+            {activeModal === "login" && (
+              <LoginModal
+                isOpen={handleLoginModal}
+                handleAltClick={handleAltClick}
+              />
+            )}
           </div>
           <Routes>
             {/* Define your routes */}
