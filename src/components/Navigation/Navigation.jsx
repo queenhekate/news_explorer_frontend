@@ -3,11 +3,11 @@ import "./Navigation.css";
 import dropdownIcon from "../../assets/menu.png";
 import ReusableButton from "../ReuseableButton/ReusableButton";
 import closeIcon from "../../assets/close.png";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import LoginModal from "../LoginModal/LoginModal";
 
-function Navigation({openLoginModal}) {
-
+function Navigation({ openLoginModal }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleDropdown = (event) => {
     setIsOpen((prevState) => !prevState);
@@ -27,34 +27,28 @@ function Navigation({openLoginModal}) {
     };
   }, []);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
-const handleSignInClick = () => {
-  console.log("Sign In button clicked");
-  openLoginModal();
-};
-
+  const handleSignInClick = () => {
+    console.log("Sign In button clicked");
+    openLoginModal(); // Call the openLoginModal function passed as a prop
+  };
 
   return (
     <div className="navigation">
-    <p className="navigation__logo">NewsExplorer</p>
-  <ul className="navigation__buttons">
-    <li>
-      <a href="/">
-        <ReusableButton text="Home" className="navigation__home" />
-      </a>
-    </li>
-    <li>
-      <ReusableButton text="Sign In" 
-      className="navigation__signin" 
-      onClick={handleSignInClick} />
-    </li>
-  </ul>
-
-      <ModalWithForm isOpen={isModalOpen} closeModal={closeModal} />
+      <p className="navigation__logo">NewsExplorer</p>
+      <ul className="navigation__buttons">
+        <li>
+          <a href="/">
+            <ReusableButton text="Home" className="navigation__home" />
+          </a>
+        </li>
+        <li>
+          <ReusableButton
+            text="Sign In"
+            className="navigation__signin"
+            onClick={handleSignInClick}
+          />
+        </li>
+      </ul>
 
       {/* Dropdown Menu Button for Small Screens */}
       <button className="navigation__dropdown" onClick={toggleDropdown}>
@@ -66,24 +60,25 @@ const handleSignInClick = () => {
         <div className="navigation__dropdown-content">
           <div className="navigation__dropdown-header">
             <button className="navigation__close" onClick={toggleDropdown}>
-            <img
-              src={closeIcon}
-              alt="Close"
-              className="navigation__close-image"
-            />
+              <img
+                src={closeIcon}
+                alt="Close"
+                className="navigation__close-image"
+              />
             </button>
           </div>
           <div className="navigation__dropdown-container">
-            <ReusableButton text="Home" 
-            className="navigation__home" />
-            <ReusableButton text="Sign In" 
-            className="navigation__signin" 
-            onClick={handleSignInClick}/>
+            <ReusableButton text="Home" className="navigation__home" />
+            <ReusableButton
+              text="Sign In"
+              className="navigation__signin"
+              onClick={handleSignInClick}
+            />
           </div>
         </div>
       )}
     </div>
   );
-};
+}
 
 export default Navigation;

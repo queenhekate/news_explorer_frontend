@@ -3,7 +3,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
 import "./LoginModal.css";
 
-function LoginModal({ isOpen, onClose, buttonText }) {
+function LoginModal({ isOpen, onClose, buttonText, onFooterLinkClick }) {
   const { values, handleChange, errors } = useFormWithValidation();
 
   const handleSubmit = (e) => {
@@ -18,20 +18,24 @@ function LoginModal({ isOpen, onClose, buttonText }) {
   if (!isOpen) {
     return null;
   }
-<div className="modal">
+
+  return (
+    <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <ModalWithForm
-        title="Log In"
+        title="Sign In"
         name="login"
         isOpen={isOpen}
         onClose={onClose}
         onSubmit={handleSubmit}
         buttonText={buttonText}
+        footerLinkText="Sign Up"
+      onFooterLinkClick={onFooterLinkClick}
       >
-        <label className="modallabel">
-          Email *{" "}
+        <label className="modal__label">
+          Email{" "}
           <input
             type="text"
-            className="modalinput"
+            className="modal__input"
             name="email"
             placeholder="Email"
             minLength={2}
@@ -40,13 +44,13 @@ function LoginModal({ isOpen, onClose, buttonText }) {
             autoComplete="email"
             required
           />
-          {errors.email && <span className="modalerror">{errors.email}</span>}
+          {errors.email && <span className="modal__error">{errors.email}</span>}
         </label>
-        <label className="modallabel">
-          Password *{" "}
+        <label className="modal__label">
+          Password{" "}
           <input
             type="password"
-            className="modalinput"
+            className="modal__input"
             name="password"
             placeholder="Password"
             autoComplete="current-password"
@@ -55,17 +59,12 @@ function LoginModal({ isOpen, onClose, buttonText }) {
             required
           />
           {errors.password && (
-            <span className="modalerror">{errors.password}</span>
+            <span className="modal__error">{errors.password}</span>
           )}
         </label>
-        <p className="modalregister-text">
-          or{" "}
-          <button className="modallink-register" onClick={onClose}>
-            Sign Up
-          </button>
-        </p>
       </ModalWithForm>
     </div>
+  );
 }
 
 export default LoginModal;

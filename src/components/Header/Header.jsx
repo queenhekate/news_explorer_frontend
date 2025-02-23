@@ -3,6 +3,7 @@ import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 
+
 function Header({ handleSearch, newsData, openLoginModal }) {
   return (
     <div className="header">

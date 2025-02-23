@@ -8,13 +8,14 @@ import Footer from "../Footer/Footer";
 import SavedNews from "../SavedNews/SavedNews";
 import IsLoadingContext from "../context/IsLoadingContext";
 import LoginModal from "../LoginModal/LoginModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
 
-function App({}) {
+function App() {
   const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  const [activeModal, setActiveModal] = useState("");
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
 
   const openLoginModal = () => {
     setIsLoginModalOpen(true);
@@ -24,19 +25,14 @@ function App({}) {
     setIsLoginModalOpen(false);
   };
 
-  console.log("App activeModal:", activeModal);
-
-  const handleLoginModal = () => {
-    console.log("Opening login modal"); // Debug log
-    setActiveModal("login");
+  const openRegisterModal = () => {
+    setIsRegisterModalOpen(true);
+    setIsLoginModalOpen(false);
   };
 
-  const handleCloseModal = () => {
-    console.log("Closing login modal"); // Debug log
-    setActiveModal("");
+  const closeRegisterModal = () => {
+    setIsRegisterModalOpen(false);
   };
-
-  console.log("Current activeModal state:", activeModal);
 
   useEffect(() => {
     // Simulate an API call with setTimeout
@@ -47,11 +43,6 @@ function App({}) {
 
   const fetchData = async () => {
     // Simulate fetching data
-    // You can replace this with your actual API call, like:
-    // const response = await fetch('https://api.example.com');
-    // const result = await response.json();
-
-    // For this example, we directly set the data
     const result = [
       { id: 1, title: "News 1", description: "Description of News 1" },
       { id: 2, title: "News 2", description: "Description of News 2" },
@@ -61,30 +52,29 @@ function App({}) {
     setLoading(false); // Set loading to false when data is fetched
   };
 
-  // function handleSearch(data) {
-  //   setNewsData(data)
-  // }
-
   return (
     <Router>
       <IsLoadingContext.Provider value={{ isLoading, setIsLoading }}>
         <div className="page">
           <div className="page__content">
-            <Header isOpen={activeModal === "login"} openLoginModal={openLoginModal} />
+            <Header openLoginModal={openLoginModal} />
             <Main />
             <About />
             <SavedNews />
             <Footer />
-            {activeModal === "login" && (
-              <LoginModal
-                isOpen={activeModal === "login"}
-                onClose={() => setActiveModal("")}
-                buttonText="Sign in"
-              />
-            )}
+            <LoginModal
+              isOpen={isLoginModalOpen}
+              closeModal={closeLoginModal}
+              buttonText="Sign in"
+            />
+             <RegisterModal
+              isOpen={isRegisterModalOpen}
+              onClose={closeRegisterModal}
+              buttonText="Sign up"
+              onFooterLinkClick={openLoginModal}
+            />
           </div>
           <Routes>
-            {/* Define your routes */}
             <Route path="/" exact component={Main} />
             <Route path="/saved-news" component={SavedNews} />
           </Routes>
