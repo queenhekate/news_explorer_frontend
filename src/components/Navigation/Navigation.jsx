@@ -5,7 +5,7 @@ import ReusableButton from "../ReuseableButton/ReusableButton";
 import closeIcon from "../../assets/close.png";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function Navigation() {
+function Navigation({openLoginModal}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = (event) => {
@@ -45,7 +45,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
       </a>
     </li>
     <li>
-      <ReusableButton text="Sign In" className="navigation__signin" onClick={openModal} />
+      <ReusableButton text="Sign In" className="navigation__signin" onClick={openLoginModal} />
     </li>
   </ul>
 

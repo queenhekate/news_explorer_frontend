@@ -1,78 +1,72 @@
-// SignIn.js
-import React, { useState } from 'react';
-import './LoginModal.css';
-import ModalWithForm from '../ModalWithForm/ModalWithForm';
-import RegisterModal from '../RegisterModal/RegisterModal';
+import React from "react";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
+import "./LoginModal.css";
 
-const LoginModal = () => {
-  // State to manage form inputs
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+function LoginModal({
+  // activeModal,
+  // onClose,
+  isOpen,
+  // handleLogin,
+  // buttonText,
+  // openRegisterModal,
+}) {
+  const { values, handleChange, errors } = useFormWithValidation();
 
-  // Handle form submission
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    
-    // Simple validation
-    if (!email || !password) {
-      setError('Please enter both email and password.');
-      return;
-    }
-
-    // Reset error if validation passes
-    setError('');
-
-    // Logic for authentication (this is just a mockup, replace it with real authentication logic)
-    console.log('Form submitted:', { email, password });
-  };
-
-//Handling opening the Registration Modal
-  const [showModal, setShowModal] = useState(false);
-
-  const handleOpenModal = () => {
-    setShowModal(true);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleLogin(values.email, values.password);
   };
 
   return (
-    <ModalWithForm>
-      <div className="login__box">
-        <h2>Sign In</h2>
-        {error && <div className="login__errorMessage">{error}</div>}
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          
-          <div className="input-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          
-          <button type="submit" className="sign-in-button">Sign In</button>
-          <div>
-      <p>
-        or <a href="#" onClick={handleOpenModal}>Sign Up</a>
-      {showModal && <RegisterModal />}
-      </p>
-    </div>
-        </form>
-      </div>
-      </ModalWithForm>
+    <ModalWithForm
+      title="Log In"
+      name="login"
+      activeModal={activeModal}
+      isOpen={isOpen}
+      onClose={onClose}
+      onSubmit={handleSubmit}
+      buttonText={buttonText}
+    >
+      <label className="modal__label">
+        Email *{" "}
+        <input
+          type="text"
+          className="modal__input"
+          name="email"
+          placeholder="Email"
+          minLength={2}
+          value={values.email}
+          onChange={handleChange}
+          autoComplete="email"
+          required
+        />
+        {errors.email && <span className="modal__error">{errors.email}</span>}
+      </label>
+      <label className="modal__label">
+        Password *{" "}
+        <input
+          type="password"
+          className="modal__input"
+          name="password"
+          placeholder="Password"
+          autoComplete="current-password"
+          value={values.password}
+          onChange={handleChange}
+          required
+        />
+        {errors.password && (
+          <span className="modal__error">{errors.password}</span>
+        )}
+      </label>
+      <p>or 
+        <a  className="modal__link-register"
+        onClick={openRegisterModal}>
+          Sign Up
+          </a>
+        </p>
+    </ModalWithForm>
   );
-};
+}
 
 export default LoginModal;

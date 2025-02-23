@@ -1,16 +1,42 @@
-import React from 'react';
-import './ModalWithForm.css';
-import closeBtn from "../../assets/close.png"
+import React from "react";
+import "./ModalWithForm.css";
+import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
 
-function ModalWithForm({ isOpen, closeModal }) {
-  if (!isOpen) return null;  // If modal is not open, don't render anything
+function ModalWithForm({
+  children,
+  name,
+  buttonText,
+  title,
+  isOpen,
+  onClose,
+  onSubmit,
+}) {
+  function handleOverlayClick(e) {
+    if (e.target.classList.contains("modal_opened")) {
+      onClose();
+    }
+  }
+
+  const { isValid } = useFormWithValidation({});
 
   return (
-    <div className="modal__overlay" onClick={closeModal}>
+    <div
+      className={`modal ${isOpen ? "modal_opened" : ""}`}
+      onClick={handleOverlayClick}
+    >
       <div className="modal__content" onClick={(e) => e.stopPropagation()}>
-        <button className="modal__close-btn" onClick={closeModal}>
-          <img src={closeBtn} alt="Close Button" className="modal__close-img" />
+        <h2 className="modal__title">{title}</h2>
+        <button
+          className="modal__close"
+          type="button"
+          onClick={onClose}
+        ></button>
+        <form onSubmit={onSubmit} className="modal__form" name={name}>
+          {children}
+          <button type="submit" className="modal__submit" disabled={isValid}>
+            {buttonText}
           </button>
+        </form>
       </div>
     </div>
   );

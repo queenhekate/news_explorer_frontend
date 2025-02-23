@@ -7,11 +7,17 @@ import About from "../About/About";
 import Footer from "../Footer/Footer";
 import SavedNews from "../SavedNews/SavedNews";
 import IsLoadingContext from "../context/IsLoadingContext";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import LoginModal from "../LoginModal/LoginModal";
 
-function App() {
+function App({}) {
   const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+ const [activeModal, setActiveModal] = useState("");
+ 
+ const handleLoginModal = () => handleOpenModal("login")
+ 
 
   useEffect(() => {
     // Simulate an API call with setTimeout
@@ -19,6 +25,10 @@ function App() {
       fetchData();
     }, 2000); // 2 seconds delay to simulate loading
   }, []);
+
+const handleOpenModal = (modal) => {
+setActiveModal(modal) 
+  }
 
   const fetchData = async () => {
     // Simulate fetching data
@@ -50,6 +60,10 @@ function App() {
             <About />
             <SavedNews />
             <Footer />
+            { activeModal==="login"&&(
+            <LoginModal 
+            isOpen={handleLoginModal}/>
+          )}
           </div>
           <Routes>
             {/* Define your routes */}
