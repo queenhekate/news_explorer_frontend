@@ -6,15 +6,15 @@ import closeIcon from "../../assets/close.png";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function Navigation({openLoginModal}) {
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = (event) => {
     setIsOpen((prevState) => !prevState);
-    event.stopPropagation(); // Prevent event from propagating to the window click listener
+    event.stopPropagation();
   };
 
   const closeDropdown = (event) => {
-    // Close dropdown if user clicks outside of the dropdown
     if (event.target.closest(".navigation") === null) {
       setIsOpen(false);
     }
@@ -22,17 +22,20 @@ function Navigation({openLoginModal}) {
 
   useEffect(() => {
     window.addEventListener("click", closeDropdown);
-
-    // Clean up the event listener when the component is unmounted
     return () => {
       window.removeEventListener("click", closeDropdown);
     };
   }, []);
 
-const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+const handleSignInClick = () => {
+  console.log("Sign In button clicked");
+  openLoginModal();
+};
 
 
   return (
@@ -45,7 +48,9 @@ const [isModalOpen, setIsModalOpen] = useState(false);
       </a>
     </li>
     <li>
-      <ReusableButton text="Sign In" className="navigation__signin" onClick={openLoginModal} />
+      <ReusableButton text="Sign In" 
+      className="navigation__signin" 
+      onClick={handleSignInClick} />
     </li>
   </ul>
 
@@ -69,13 +74,16 @@ const [isModalOpen, setIsModalOpen] = useState(false);
             </button>
           </div>
           <div className="navigation__dropdown-container">
-            <ReusableButton text="Home" className="navigation__home" />
-            <ReusableButton text="Sign In" className="navigation__signin" />
+            <ReusableButton text="Home" 
+            className="navigation__home" />
+            <ReusableButton text="Sign In" 
+            className="navigation__signin" 
+            onClick={handleSignInClick}/>
           </div>
         </div>
       )}
     </div>
   );
-}
+};
 
 export default Navigation;

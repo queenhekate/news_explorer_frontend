@@ -14,6 +14,15 @@ function App({}) {
   const [loading, setLoading] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [activeModal, setActiveModal] = useState("");
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  const openLoginModal = () => {
+    setIsLoginModalOpen(true);
+  };
+
+  const closeLoginModal = () => {
+    setIsLoginModalOpen(false);
+  };
 
   console.log("App activeModal:", activeModal);
 
@@ -61,7 +70,7 @@ function App({}) {
       <IsLoadingContext.Provider value={{ isLoading, setIsLoading }}>
         <div className="page">
           <div className="page__content">
-            <Header isOpen={activeModal === "login"} />
+            <Header isOpen={activeModal === "login"} openLoginModal={openLoginModal} />
             <Main />
             <About />
             <SavedNews />

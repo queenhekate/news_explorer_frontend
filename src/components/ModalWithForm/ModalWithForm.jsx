@@ -12,16 +12,18 @@ function ModalWithForm({
   onSubmit,
 }) {
   function handleOverlayClick(e) {
-    if (e.target.classList.contains("modal_opened")) {
+    if (e.target.classList.contains("modal")) {
       onClose();
     }
   }
 
   const { isValid } = useFormWithValidation({});
 
+  if (!isOpen) return null; 
+
   return (
     <div
-      className={`modal ${isOpen ? "modal_opened" : ""}`}
+      className="modal modal_opened"
       onClick={handleOverlayClick}>
       <div className="modal__content" onClick={(e) => e.stopPropagation()}>
         <h2 className="modal__title">{title}</h2>
