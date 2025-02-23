@@ -3,70 +3,69 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
 import "./LoginModal.css";
 
-function LoginModal({
-  // activeModal,
-  // onClose,
-  isOpen,
-  // handleLogin,
-  // buttonText,
-  // openRegisterModal,
-}) {
+function LoginModal({ isOpen, onClose, buttonText }) {
   const { values, handleChange, errors } = useFormWithValidation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogin(values.email, values.password);
+    console.log("Login submitted:", values);
   };
 
-  return (
-    <ModalWithForm
-      title="Log In"
-      name="login"
-      activeModal={activeModal}
-      isOpen={isOpen}
-      onClose={onClose}
-      onSubmit={handleSubmit}
-      buttonText={buttonText}
-    >
-      <label className="modal__label">
-        Email *{" "}
-        <input
-          type="text"
-          className="modal__input"
-          name="email"
-          placeholder="Email"
-          minLength={2}
-          value={values.email}
-          onChange={handleChange}
-          autoComplete="email"
-          required
-        />
-        {errors.email && <span className="modal__error">{errors.email}</span>}
-      </label>
-      <label className="modal__label">
-        Password *{" "}
-        <input
-          type="password"
-          className="modal__input"
-          name="password"
-          placeholder="Password"
-          autoComplete="current-password"
-          value={values.password}
-          onChange={handleChange}
-          required
-        />
-        {errors.password && (
-          <span className="modal__error">{errors.password}</span>
-        )}
-      </label>
-      <p>or 
-        <a  className="modal__link-register"
-        onClick={openRegisterModal}>
-          Sign Up
-          </a>
+  // Add console.log to debug isOpen state
+  console.log("LoginModal isOpen:", isOpen);
+
+  // Early return if not open
+  if (!isOpen) {
+    return null;
+  }
+<div className="modal">
+      <ModalWithForm
+        title="Log In"
+        name="login"
+        isOpen={isOpen}
+        onClose={onClose}
+        onSubmit={handleSubmit}
+        buttonText={buttonText}
+      >
+        <label className="modallabel">
+          Email *{" "}
+          <input
+            type="text"
+            className="modalinput"
+            name="email"
+            placeholder="Email"
+            minLength={2}
+            value={values.email}
+            onChange={handleChange}
+            autoComplete="email"
+            required
+          />
+          {errors.email && <span className="modalerror">{errors.email}</span>}
+        </label>
+        <label className="modallabel">
+          Password *{" "}
+          <input
+            type="password"
+            className="modalinput"
+            name="password"
+            placeholder="Password"
+            autoComplete="current-password"
+            value={values.password}
+            onChange={handleChange}
+            required
+          />
+          {errors.password && (
+            <span className="modalerror">{errors.password}</span>
+          )}
+        </label>
+        <p className="modalregister-text">
+          or{" "}
+          <button className="modallink-register" onClick={onClose}>
+            Sign Up
+          </button>
         </p>
-    </ModalWithForm>
-  );
+      </ModalWithForm>
+    </div>
 }
 
 export default LoginModal;

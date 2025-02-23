@@ -7,7 +7,6 @@ import About from "../About/About";
 import Footer from "../Footer/Footer";
 import SavedNews from "../SavedNews/SavedNews";
 import IsLoadingContext from "../context/IsLoadingContext";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import LoginModal from "../LoginModal/LoginModal";
 
 function App({}) {
@@ -16,12 +15,19 @@ function App({}) {
   const [isLoading, setIsLoading] = useState(false);
   const [activeModal, setActiveModal] = useState("");
 
-  const handleLoginModal = () => handleOpenModal("login");
-  const handleAltClick = () => {
-    if (activeModal === "login") {
-      handleOpenModal("login");
-    }
+  console.log("App activeModal:", activeModal);
+
+  const handleLoginModal = () => {
+    console.log("Opening login modal"); // Debug log
+    setActiveModal("login");
   };
+
+  const handleCloseModal = () => {
+    console.log("Closing login modal"); // Debug log
+    setActiveModal("");
+  };
+
+  console.log("Current activeModal state:", activeModal);
 
   useEffect(() => {
     // Simulate an API call with setTimeout
@@ -29,10 +35,6 @@ function App({}) {
       fetchData();
     }, 2000); // 2 seconds delay to simulate loading
   }, []);
-
-  const handleOpenModal = (modal) => {
-    setActiveModal(modal);
-  };
 
   const fetchData = async () => {
     // Simulate fetching data
@@ -59,15 +61,16 @@ function App({}) {
       <IsLoadingContext.Provider value={{ isLoading, setIsLoading }}>
         <div className="page">
           <div className="page__content">
-            <Header />
+            <Header isOpen={activeModal === "login"} />
             <Main />
             <About />
             <SavedNews />
             <Footer />
             {activeModal === "login" && (
               <LoginModal
-                isOpen={handleLoginModal}
-                handleAltClick={handleAltClick}
+                isOpen={activeModal === "login"}
+                onClose={() => setActiveModal("")}
+                buttonText="Sign in"
               />
             )}
           </div>

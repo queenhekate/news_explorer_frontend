@@ -22,8 +22,7 @@ function ModalWithForm({
   return (
     <div
       className={`modal ${isOpen ? "modal_opened" : ""}`}
-      onClick={handleOverlayClick}
-    >
+      onClick={handleOverlayClick}>
       <div className="modal__content" onClick={(e) => e.stopPropagation()}>
         <h2 className="modal__title">{title}</h2>
         <button
