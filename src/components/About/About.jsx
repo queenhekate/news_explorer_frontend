@@ -11,11 +11,10 @@ function About() {
         <h2 className="about__heading">About the author</h2>
         <p className="about__description">
           Hello, I'm Johanna Schnell, a web developer skilled in technologies
-          like HTML, CSS, JavaScript, React, and Node.js. I gained valuable
+          like JavaScript, React, Express, MongoDB, and Trello. I gained valuable
           experience at TripleTen, where I worked on full-stack projects and
           refined my problem-solving and development skills.<br />
-          <br />I'm passionate
-          about helping clients bring their ideas to life with clean, efficient
+          <br />I'm passionate about helping clients bring their ideas to life with clean, efficient
           code and user-friendly web solutions. Let’s collaborate and build
           something great!
         </p>

@@ -1,10 +1,8 @@
 .newsCard {
-  background-color: #fff;
+  background-color: #f5f6f7;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
   text-align: left;
-  cursor: pointer;
+  padding: 80px 104px;
 }
 
 .newsCard__text {
@@ -17,6 +15,17 @@
 
 .newsCard__list {
   display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 64px auto;
+}
+
+.newsCard__btn-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
+  margin-top: 54px;
 }
 
 .newsCard__btn {

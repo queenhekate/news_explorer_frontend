@@ -1,18 +1,32 @@
 /* User area layout */
 .navigation {
+  width: 100%;
   display: flex;
-  gap: 42px;
   font-family: "Roboto";
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  letter-spacing: 0px;
-  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 19px 104px;
+  border-bottom: solid #c4c4c4 1px;
+}
+
+/* Styling for the logo */
+.navigation__logo {
+  color: white;
+  font-family: "Roboto-Slab";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-decoration: none;
 }
 
 .navigation__buttons {
   display: flex;
-  gap: 20px;
+  gap: 54px;
+  list-style-type: none;
+  align-items: center;
 }
 
 /* Home button styling */

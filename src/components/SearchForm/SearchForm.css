@@ -2,7 +2,7 @@
   position: relative; /* Create a positioning context for the button */
   width: 100%; /* The width of the search bar (or adjust as needed) */
   max-width: 608px;
-  padding: 0 16px;
+  margin-top: 78px;
 }
 
 .searchForm__input {

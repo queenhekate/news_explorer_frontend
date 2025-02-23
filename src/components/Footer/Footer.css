@@ -23,6 +23,17 @@
   line-height: 24px;
   text-align: center;
   gap: 40px;
+  list-style-type: none;
+}
+
+.footer__linkedIn {
+  height: 24px;
+  width: 24px;
+}
+
+.footer__gitHub {
+  height: 24px;
+  width: 24px;
 }
 
 @media (max-width: 460px) {

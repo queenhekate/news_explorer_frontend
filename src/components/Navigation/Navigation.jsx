@@ -37,10 +37,17 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="navigation">
-      <div className="navigation__buttons">
-        <a href="/"> <ReusableButton text="Home" className="navigation__home" /></a>
-        <ReusableButton text="Sign In" className="navigation__signin" onClick={openModal}/> 
-      </div>
+    <p className="navigation__logo">NewsExplorer</p>
+  <ul className="navigation__buttons">
+    <li>
+      <a href="/">
+        <ReusableButton text="Home" className="navigation__home" />
+      </a>
+    </li>
+    <li>
+      <ReusableButton text="Sign In" className="navigation__signin" onClick={openModal} />
+    </li>
+  </ul>
 
       <ModalWithForm isOpen={isModalOpen} closeModal={closeModal} />
 

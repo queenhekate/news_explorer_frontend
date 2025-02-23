@@ -11,25 +11,26 @@ function NewsCard() {
       id: 1,
       title: "Card 1",
       description: "This is the description of card 1.",
-      imageUrl: { Photo1 },
+      imageUrl: Photo1,
     },
     {
       id: 2,
       title: "Card 2",
       description: "This is the description of card 2.",
-      imageUrl: { Photo2 },
+      imageUrl: Photo2,
     },
     {
       id: 3,
       title: "Card 3",
       description: "This is the description of card 3.",
-      imageUrl: { Photo3 },
+      imageUrl: Photo3,
     },
     // Add more cards here
   ];
 
   return (
     <div className="newsCard">
+      <div className="newsCard__container">
       <p className="newsCard__text">Search Results</p>
       <div className="newsCard__list">
         {cards.map((card) => (
@@ -41,7 +42,10 @@ function NewsCard() {
           />
         ))}
       </div>
+      <div className="newsCard__btn-container">
       <button className="newsCard__btn">Show More</button>
+      </div>
+      </div>
     </div>
   );
 }
