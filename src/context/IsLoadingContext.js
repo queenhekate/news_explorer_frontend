@@ -1,8 +1,5 @@
-import React from 'react';
-// Create a new context with default values.
-const IsLoadingContext = React.createContext({
-  isLoading: false,
-  setIsLoading: () => {},
-});
+import { createContext } from 'react';
+
+const IsLoadingContext = createContext();
 
 export default IsLoadingContext;

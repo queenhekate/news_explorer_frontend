@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { CurrentUserContext } from "../../context/CurrentUserContext";
 import IsLoadingContext from "../../context/IsLoadingContext.js";
-import MyProtectedRoute from "../ProtectedRoute.jsx";
+import ProtectedRoute from "../ProtectedRoute.jsx";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -14,7 +14,6 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 
 function App() {
   const [newsData, setNewsData] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
@@ -45,36 +44,39 @@ function App() {
     setIsRegisterModalOpen(false);
   };
 
-  useEffect(() => {
-    // Simulate an API call with setTimeout
-    setTimeout(() => {
-      fetchData();
-    }, 2000); // 2 seconds delay to simulate loading
-  }, []);
-
-  const fetchData = async () => {
-    // Simulate fetching data
-    const result = [
-      { id: 1, title: "News 1", description: "Description of News 1" },
-      { id: 2, title: "News 2", description: "Description of News 2" },
-    ];
-
-    setNewsData(result);
-    setLoading(false); // Set loading to false when data is fetched
-  };
-
   return (
     <Router>
+    <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
       <div className="page">
         <div className="page__content">
+        <Routes>
+          <Route 
+           path="/"
+           element={
+            <>
           <Header openLoginModal={openLoginModal} />
           <IsLoadingContext.Provider value={{ isLoading, setIsLoading }}>
-            <Main />
+          <Main newsData={newsData} />
           </IsLoadingContext.Provider>
           <About />
-          <SavedNews />
           <Footer />
-          <LoginModal
+          </>
+           }
+           />
+          <Route
+                path="/saved-news"
+                element={
+                  <>
+                  <Navigation />
+                  <ProtectedRoute>
+                    <SavedNews />
+                  </ProtectedRoute>
+                  <Footer />
+                  </>
+                }
+              />
+        </Routes>
+        <LoginModal
             isOpen={isLoginModalOpen}
             onClose={closeLoginModal}
             title="Sign In"
@@ -89,11 +91,8 @@ function App() {
             onFooterLinkClick={openLoginModal}
           />
         </div>
-        <Routes>
-          <Route path="/" exact component={Main} />
-          <Route path="/saved-news" component={SavedNews} />
-        </Routes>
       </div>
+      </CurrentUserContext.Provider>
     </Router>
   );
 }
