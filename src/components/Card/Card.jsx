@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Card.css";
 
-function Card({ title, description, imageUrl }) {
+function Card({ imageUrl, title, description }) {
+  const [isSaved, setIsSaved] = useState(false);
+
+  const handleSaveClick = () => {
+    setIsSaved(!isSaved);
+  };
+
   return (
     <div className="card">
-      <div>
-      <button className="card__save-btn"></button>
-      {imageUrl && <img src={imageUrl} alt={title} className="card__image" />}
-      </div>
+      <button
+        className={`card__save-btn ${isSaved ? "saved" : ""}`}
+        onClick={handleSaveClick}
+      ></button>
+      <img src={imageUrl} alt={title} className="card__image" />
       <div className="card__content">
-        <h3 className="card__title">{title}</h3>
+        <h2 className="card__title">{title}</h2>
         <p className="card__description">{description}</p>
       </div>
     </div>

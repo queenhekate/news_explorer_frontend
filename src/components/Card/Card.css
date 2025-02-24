@@ -7,20 +7,25 @@
 }
 
 .card__save-btn {
-  position: absolute; /* Position the icon absolutely within the article */
-  top: 24px; /* Position 10px from the top */
-  right: 24px; /* Position 10px from the right */
+  position: absolute;
+  top: 24px;
+  right: 24px;
   height: 40px;
   width: 40px;
-  cursor: pointer; /* Change cursor to a pointer to indicate it is clickable */
+  cursor: pointer;
   background-image: url("../../assets/unsave-icon.png");
   z-index: 100;
   border: none;
   border-radius: 8px;
+  background-size: cover;
 }
 
 .card__save-btn:hover {
   background-image: url("../../assets/hover-icon.png");
+}
+
+.card__save-btn.saved {
+  background-image: url("../../assets/save-icon.png");
 }
 
 .card__image {

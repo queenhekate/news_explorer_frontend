@@ -3,7 +3,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
 import "./LoginModal.css";
 
-function LoginModal({ isOpen, onClose, buttonText, onFooterLinkClick }) {
+function LoginModal({ isOpen, onClose, buttonText, onFooterLinkClick, title }) {
   const { values, handleChange, errors } = useFormWithValidation();
 
   const handleSubmit = (e) => {
@@ -20,9 +20,9 @@ function LoginModal({ isOpen, onClose, buttonText, onFooterLinkClick }) {
   }
 
   return (
-    <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
+    // <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <ModalWithForm
-        title="Sign In"
+        title={title}
         name="login"
         isOpen={isOpen}
         onClose={onClose}
@@ -63,7 +63,7 @@ function LoginModal({ isOpen, onClose, buttonText, onFooterLinkClick }) {
           )}
         </label>
       </ModalWithForm>
-    </div>
+    // </div>
   );
 }
 

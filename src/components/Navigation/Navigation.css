@@ -12,6 +12,10 @@
   border-bottom: solid #c4c4c4 1px;
 }
 
+.navigation__logo-link {
+  text-decoration: none; /* Remove underline from the logo link */
+}
+
 /* Styling for the logo */
 .navigation__logo {
   color: white;
@@ -35,6 +39,11 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.navigation__link-active .navigation__home {
+  border-bottom: 2px solid #c4c4c4; /* Highlight the bottom border */
 }
 
 /* Sign-in button styling */

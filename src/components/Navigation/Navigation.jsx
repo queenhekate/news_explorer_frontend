@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 import dropdownIcon from "../../assets/menu.png";
 import ReusableButton from "../ReuseableButton/ReusableButton";
@@ -34,12 +35,14 @@ function Navigation({ openLoginModal }) {
 
   return (
     <div className="navigation">
-      <p className="navigation__logo">NewsExplorer</p>
+      <NavLink exact to="/" className="navigation__logo-link">
+        <p className="navigation__logo">NewsExplorer</p>
+      </NavLink>
       <ul className="navigation__buttons">
         <li>
-          <a href="/">
+        <NavLink exact to="/" activeClassName="navigation__link-active">
             <ReusableButton text="Home" className="navigation__home" />
-          </a>
+          </NavLink>
         </li>
         <li>
           <ReusableButton

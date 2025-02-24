@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { CurrentUserContext } from "../../context/CurrentUserContext";
+import IsLoadingContext from "../../context/IsLoadingContext.js";
+import MyProtectedRoute from "../ProtectedRoute.jsx";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
 import SavedNews from "../SavedNews/SavedNews";
-import IsLoadingContext from "../context/IsLoadingContext";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 
@@ -16,9 +18,18 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
+  const [currentUser, setCurrentUser] = useState({
+    _id: "",
+    email: "",
+    name: "",
+    username: "",
+  });
 
   const openLoginModal = () => {
     setIsLoginModalOpen(true);
+    setIsRegisterModalOpen(false);
   };
 
   const closeLoginModal = () => {
@@ -54,32 +65,35 @@ function App() {
 
   return (
     <Router>
-      <IsLoadingContext.Provider value={{ isLoading, setIsLoading }}>
-        <div className="page">
-          <div className="page__content">
-            <Header openLoginModal={openLoginModal} />
+      <div className="page">
+        <div className="page__content">
+          <Header openLoginModal={openLoginModal} />
+          <IsLoadingContext.Provider value={{ isLoading, setIsLoading }}>
             <Main />
-            <About />
-            <SavedNews />
-            <Footer />
-            <LoginModal
-              isOpen={isLoginModalOpen}
-              closeModal={closeLoginModal}
-              buttonText="Sign in"
-            />
-             <RegisterModal
-              isOpen={isRegisterModalOpen}
-              onClose={closeRegisterModal}
-              buttonText="Sign up"
-              onFooterLinkClick={openLoginModal}
-            />
-          </div>
-          <Routes>
-            <Route path="/" exact component={Main} />
-            <Route path="/saved-news" component={SavedNews} />
-          </Routes>
+          </IsLoadingContext.Provider>
+          <About />
+          <SavedNews />
+          <Footer />
+          <LoginModal
+            isOpen={isLoginModalOpen}
+            onClose={closeLoginModal}
+            title="Sign In"
+            buttonText="Sign Up"
+            onFooterLinkClick={openRegisterModal}
+          />
+          <RegisterModal
+            isOpen={isRegisterModalOpen}
+            onClose={closeRegisterModal}
+            title="Sign Up"
+            buttonText="Sign In"
+            onFooterLinkClick={openLoginModal}
+          />
         </div>
-      </IsLoadingContext.Provider>
+        <Routes>
+          <Route path="/" exact component={Main} />
+          <Route path="/saved-news" component={SavedNews} />
+        </Routes>
+      </div>
     </Router>
   );
 }
