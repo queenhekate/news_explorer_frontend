@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 import dropdownIcon from "../../assets/menu.png";
 import ReusableButton from "../ReuseableButton/ReusableButton";
 import closeIcon from "../../assets/close.png";
-import LoginModal from "../LoginModal/LoginModal";
+import { CurrentUserContext } from "../../context/CurrentUserContext";
 
 function Navigation({ openLoginModal }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { currentUser } = useContext(CurrentUserContext);
 
   const toggleDropdown = (event) => {
     setIsOpen((prevState) => !prevState);
@@ -30,7 +30,7 @@ function Navigation({ openLoginModal }) {
 
   const handleSignInClick = () => {
     console.log("Sign In button clicked");
-    openLoginModal(); // Call the openLoginModal function passed as a prop
+    openLoginModal(); 
   };
 
   return (
@@ -44,12 +44,27 @@ function Navigation({ openLoginModal }) {
             <ReusableButton text="Home" className="navigation__home" />
           </NavLink>
         </li>
+        {currentUser && (
+          <li>
+            <NavLink
+              exact
+              to="/saved-news"
+              activeClassName="navigation__link-active"
+            >
+              <ReusableButton text="Saved Articles" className="navigation__saved" />
+            </NavLink>
+          </li>
+        )}
         <li>
+          {currentUser ? (
+            <span className="navigation__username">{currentUser.username}</span> 
+          ) : (
           <ReusableButton
             text="Sign In"
             className="navigation__signin"
             onClick={handleSignInClick}
           />
+        )}
         </li>
       </ul>
 

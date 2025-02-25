@@ -34,20 +34,20 @@
 }
 
 /* Home button styling */
-.navigation__home {
+.navigation__home, .navigation__saved {
   color: white;
-  border: none;
   background-color: transparent;
   cursor: pointer;
   text-decoration: none;
 }
 
-.navigation__link-active .navigation__home {
+
+.navigation__link-active, .navigation__home, .navigation__saved {
   border-bottom: 2px solid #c4c4c4; /* Highlight the bottom border */
 }
 
 /* Sign-in button styling */
-.navigation__signin {
+.navigation__signin .navigation__username {
   color: white;
   background-color: transparent;
   border-radius: 100px;
@@ -56,6 +56,7 @@
   cursor: pointer;
   width: 176px;
   height: 48px;
+  
 }
 
 .navigation__dropdown {

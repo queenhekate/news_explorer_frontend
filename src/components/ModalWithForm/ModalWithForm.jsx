@@ -1,6 +1,5 @@
 import React from "react";
 import "./ModalWithForm.css";
-import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
 
 function ModalWithForm({
   children,
@@ -12,8 +11,8 @@ function ModalWithForm({
   onSubmit,
   footerLinkText,
   onFooterLinkClick,
+  isValid
 }) {
-  const { isValid } = useFormWithValidation({});
 
   const handleOverlayClick = (e) => {
     if (e.target.classList.contains("modal")) {
@@ -28,9 +27,10 @@ function ModalWithForm({
       <div className="modal__content" onClick={(e) => e.stopPropagation()}>
         <h2 className="modal__title">{title}</h2>
         <button className="modal__close" type="button" onClick={onClose}></button>
-        <form onSubmit={onSubmit} className="modal__form" name={name}>
+        <form onSubmit={onSubmit} className="modal__form" name={name} noValidate>
           {children}
-          <button type="submit" className="modal__submit" disabled={!isValid}>
+          <button type="submit" className={`modal__submit ${isValid ? "modal__submit_active" : ""}`}
+           disabled={!isValid}>
             {buttonText}
           </button>
           <p className="modal__footer-text">

@@ -5,7 +5,7 @@ import Photo1 from "../../assets/baby-photo-1.jpg";
 import Photo2 from "../../assets/baby-photo-2.jpg";
 import Photo3 from "../../assets/baby-photo-3.jpg";
 
-function NewsCard() {
+function NewsCard({ showText = true, showButton = true }) {
   const cards = [
     {
       id: 1,
@@ -31,7 +31,7 @@ function NewsCard() {
   return (
     <div className="newsCard">
       <div className="newsCard__container">
-      <p className="newsCard__text">Search Results</p>
+      {showText && <p className="newsCard__text">Search Results</p>}
       <div className="newsCard__list">
         {cards.map((card) => (
           <Card
@@ -42,9 +42,11 @@ function NewsCard() {
           />
         ))}
       </div>
-      <div className="newsCard__btn-container">
-      <button className="newsCard__btn">Show More</button>
-      </div>
+      {showButton && (
+          <div className="newsCard__btn-container">
+            <button className="newsCard__btn">Show More</button>
+          </div>
+        )}
       </div>
     </div>
   );
