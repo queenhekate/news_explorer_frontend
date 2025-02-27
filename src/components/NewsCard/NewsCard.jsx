@@ -12,37 +12,46 @@ function NewsCard({ showText = true, showButton = true }) {
       title: "Card 1",
       description: "This is the description of card 1.",
       imageUrl: Photo1,
+      keyword: "Baby",
     },
     {
       id: 2,
       title: "Card 2",
       description: "This is the description of card 2.",
       imageUrl: Photo2,
+      keyword: "Baby",
     },
     {
       id: 3,
       title: "Card 3",
       description: "This is the description of card 3.",
       imageUrl: Photo3,
+      keyword: "Baby",
     },
     // Add more cards here
   ];
 
+  const handleDelete = (id) => {
+    setSavedArticles(savedArticles.filter((article) => article.id !== id));
+  };
+
   return (
     <div className="newsCard">
       <div className="newsCard__container">
-      {showText && <p className="newsCard__text">Search Results</p>}
-      <div className="newsCard__list">
-        {cards.map((card) => (
-          <Card
-            key={card.id}
-            title={card.title}
-            description={card.description}
-            imageUrl={card.imageUrl}
-          />
-        ))}
-      </div>
-      {showButton && (
+        {showText && <p className="newsCard__text">Search Results</p>}
+        <div className="newsCard__list">
+          {cards.map((card) => (
+            <Card
+              key={card.id}
+              title={card.title}
+              description={card.description}
+              imageUrl={card.imageUrl}
+              keyword={card.keyword}
+              onDelete={() => handleDelete(card.id)}
+            />
+          ))}
+        </div>
+        {showButton && (
           <div className="newsCard__btn-container">
             <button className="newsCard__btn">Show More</button>
           </div>

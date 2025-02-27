@@ -43,13 +43,28 @@
 }
 
 @media (max-width: 800px) {
-  /* Your styles for screens between 768px and 321px go here */
+  .searchForm {
+    margin-top: 50px;
+  }
+
+  .searchForm__input {
+    font-size: 16px;
+    height: 56px;
+    padding: 10px 30px 10px 20px;
+  }
+
+  .searchForm__button {
+    width: 140px;
+    height: 56px;
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 460px) {
   .searchForm {
     max-width: 100%; /* Make the form take up full width of the screen */
     padding: 0 16px; /* Add some padding for small screens */
+    margin-top: 30px;
   }
 
   .searchForm__input {

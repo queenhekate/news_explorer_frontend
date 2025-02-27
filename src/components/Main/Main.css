@@ -13,6 +13,7 @@ body {
   align-items: center;
   box-sizing: border-box;
   background-color: #f5f6f7;
+  padding: 20px;
 }
 
 .main__preloader-container {
@@ -23,4 +24,25 @@ body {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .main {
+    padding: 15px;
+  }
+
+  .main__preloader-container {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 10px;
+  }
+
+  .main__preloader-container {
+    height: 150px;
+  }
 }

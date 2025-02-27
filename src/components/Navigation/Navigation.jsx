@@ -46,14 +46,16 @@ function Navigation({ handleLogoutClick, handleSignInClick }) {
       </NavLink>
       <ul className="navigation__buttons">
         <li>
-          <NavLink exact to="/" activeClassName= 
-          {`navigation__link-active ${isSavedNewsPage ? "navigation__link-active_saved" : ""}`}
+        <NavLink
+            exact
+            to="/"
+            className={({ isActive }) =>
+              `navigation__link ${isActive ? "navigation__link-active" : ""}`
+            }
           >
             <ReusableButton
               text="Home"
-              className={`navigation__home ${
-                isSavedNewsPage ? "navigation__saved-news_buttons" : ""
-              }`}
+              className={`navigation__home ${isSavedNewsPage ? "navigation__saved-news_buttons" : ""}`}
             />
           </NavLink>
         </li>
@@ -62,14 +64,15 @@ function Navigation({ handleLogoutClick, handleSignInClick }) {
             <NavLink
               exact
               to="/saved-news"
-              activeClassName=
-              {`navigation__link-active ${isSavedNewsPage ? "navigation__link-active_saved" : ""}`}
-              >
+              className={({ isActive }) =>
+                `navigation__link ${isActive ? "navigation__link-active" : ""} ${
+                  isSavedNewsPage ? "navigation__link-active_saved" : ""
+                }`
+              }
+            >
               <ReusableButton
                 text="Saved Articles"
-                className={`navigation__saved ${
-                  isSavedNewsPage ? "navigation__saved-news_buttons" : ""
-                }`}
+                className={`navigation__saved ${isSavedNewsPage ? "navigation__saved-news_buttons" : ""}`}
               />
             </NavLink>
           </li>

@@ -1,19 +1,30 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import "./Card.css";
 
-function Card({ imageUrl, title, description }) {
+function Card({ imageUrl, title, description, keyword, onDelete }) {
   const [isSaved, setIsSaved] = useState(false);
+  const location = useLocation();
+  const isSavedNewsPage = location.pathname === "/saved-news";
 
   const handleSaveClick = () => {
-    setIsSaved(!isSaved);
+    if (isSavedNewsPage) {
+      onDelete();
+    } else {
+      setIsSaved(!isSaved);
+    }
   };
 
   return (
     <div className="card">
+      {isSavedNewsPage && <p className="card__keyword">{keyword}</p>}
       <button
-        className={`card__save-btn ${isSaved ? "saved" : ""}`}
+                className={`card__btn 
+                  ${isSavedNewsPage ? "card__delete-btn" : "card__save-btn"} 
+                ${isSaved ? "saved" : ""}`}
         onClick={handleSaveClick}
-      ></button>
+      >
+      </button>
       <img src={imageUrl} alt={title} className="card__image" />
       <div className="card__content">
         <h2 className="card__title">{title}</h2>

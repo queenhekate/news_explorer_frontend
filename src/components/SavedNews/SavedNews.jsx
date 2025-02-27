@@ -6,7 +6,7 @@ import NewsCard from "../NewsCard/NewsCard";
 import Footer from "../Footer/Footer";
 import { CurrentUserContext } from "../../context/CurrentUserContext";
 
-function SavedNews() {
+function SavedNews({}) {
   const { currentUser } = useContext(CurrentUserContext);
   return (
     <div className="savedNews">

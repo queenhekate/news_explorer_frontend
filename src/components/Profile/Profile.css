@@ -36,3 +36,41 @@
 .profile__info-span {
   font-weight: 700;
 }
+
+@media (max-width: 768px) {
+  .profile {
+    padding: 20px;
+  }
+
+  .profile__title {
+    font-size: 16px;
+  }
+
+  .profile__info {
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .profile__keywords {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile {
+    padding: 10px;
+  }
+
+  .profile__title {
+    font-size: 14px;
+  }
+
+  .profile__info {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .profile__keywords {
+    font-size: 14px;
+  }
+}

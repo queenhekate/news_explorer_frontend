@@ -53,11 +53,12 @@
 }
 
 .navigation__link-active {
-  border-bottom: 2px white solid !important;
+  border-bottom: 3px white solid;
+  padding-bottom: 25px;
 }
 
 .navigation__link-active_saved {
-  border-bottom: black !important;
+  border-bottom: black solid 3px;
 }
 
 /* Sign-in button styling */
@@ -164,6 +165,9 @@
 
 @media (max-width: 800px) {
   /* Your styles for screens between 768px and 321px go here */
+  .navigation {
+    padding: 0 20px;
+  }
   .navigation__user {
     font-size: 16px; /* Example of a style */
   }
@@ -176,6 +180,9 @@
 }
 
 @media (max-width: 460px) {
+  .navigation {
+    padding: 0 10px;
+  }
   /* Your styles for screens 320px and below go here */
   .navigation__user {
     font-size: 14px; /* Example of a style */

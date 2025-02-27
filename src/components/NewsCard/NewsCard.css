@@ -2,7 +2,14 @@
   background-color: #f5f6f7;
   border-radius: 8px;
   text-align: left;
-  padding: 80px 104px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.newsCard__container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .newsCard__text {
@@ -42,4 +49,38 @@
   border: none;
   width: 288px;
   height: 64px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .newsCard__text {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .newsCard__list {
+    gap: 15px;
+  }
+
+  .newsCard__btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsCard__text {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .newsCard__list {
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .newsCard__btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
 }
