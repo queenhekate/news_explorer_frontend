@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useNavigate, Route, Routes } from "react-router-dom";
 import { CurrentUserContext } from "../../context/CurrentUserContext";
 import IsLoadingContext from "../../context/IsLoadingContext.js";
 import ProtectedRoute from "../ProtectedRoute.jsx";
@@ -21,6 +21,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const [currentUser, setCurrentUser] = useState(null);
+  const navigate = useNavigate();
 
   const openLoginModal = () => {
     setIsLoginModalOpen(true);
@@ -38,6 +39,12 @@ function App() {
 
   const closeRegisterModal = () => {
     setIsRegisterModalOpen(false);
+  };
+
+  const handleLogoutClick = () => {
+    console.log("Logout button clicked");
+    setCurrentUser(null); 
+    navigate("/");
   };
 
   useEffect(() => {
@@ -66,8 +73,8 @@ function App() {
       const user = {
         _id: "123",
         email: "user@example.com",
-        name: "John Doe",
-        username: "johndoe",
+        name: "Elise",
+        username: "Elise",
         savedArticlesCount: 5,
         keywords: ["React", "JavaScript", "CSS", "HTML"],
       };
@@ -78,7 +85,6 @@ function App() {
   }, []);
 
   return (
-    <Router>
       <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
         <div className="page">
           <div className="page__content">
@@ -87,7 +93,10 @@ function App() {
                 path="/"
                 element={
                   <>
-                    <Header openLoginModal={openLoginModal} />
+                    <Header 
+                    openLoginModal={openLoginModal}
+                    handleLogoutClick={handleLogoutClick}
+                    handleSignInClick={openLoginModal} />
                     <IsLoadingContext.Provider
                       value={{ isLoading, setIsLoading }}
                     >
@@ -127,7 +136,6 @@ function App() {
           </div>
         </div>
       </CurrentUserContext.Provider>
-    </Router>
   );
 }
 

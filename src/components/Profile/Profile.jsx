@@ -13,9 +13,16 @@ function Profile() {
   return (
     <div className="profile">
       <h2 className="profile__title">Saved Articles</h2>
-      <p className="profile__info">{currentUser.name}, you have {savedArticlesCount} saved articles</p>
-      <p className="profile__info">By keywords {primaryKeywords.join(", ")} 
-        {additionalKeywordsCount > 0 && `and ${additionalKeywordsCount} other`}
+      <p className="profile__info">
+        {currentUser.name}, you have {savedArticlesCount} saved articles
+      </p>
+      <p className="profile__keywords">
+        By keywords: {primaryKeywords.join(", ")}
+        {additionalKeywordsCount > 0 && (
+          <span className="profile__info-span">
+            {` and ${additionalKeywordsCount} other`}
+          </span>
+        )}
       </p>
     </div>
   );

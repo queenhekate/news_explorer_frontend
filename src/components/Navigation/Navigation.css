@@ -8,15 +8,14 @@
   line-height: 24px;
   justify-content: space-between;
   align-items: center;
-  padding: 19px 104px;
+  padding: 0 104px;
   border-bottom: solid #c4c4c4 1px;
 }
 
 .navigation__logo-link {
-  text-decoration: none; /* Remove underline from the logo link */
+  text-decoration: none;
 }
 
-/* Styling for the logo */
 .navigation__logo {
   color: white;
   font-family: "Roboto-Slab";
@@ -26,6 +25,10 @@
   text-decoration: none;
 }
 
+.navigation__saved-news_logo {
+  color: black;
+}
+
 .navigation__buttons {
   display: flex;
   gap: 54px;
@@ -33,17 +36,28 @@
   align-items: center;
 }
 
+.navigation__saved-news_buttons {
+  color: black !important;
+}
+
 /* Home button styling */
-.navigation__home, .navigation__saved {
+.navigation__home,
+.navigation__saved {
   color: white;
   background-color: transparent;
   cursor: pointer;
   text-decoration: none;
+  border: none;
+  padding-bottom: 26px;
+  padding-top: 30px;
 }
 
+.navigation__link-active {
+  border-bottom: 2px white solid !important;
+}
 
-.navigation__link-active, .navigation__home, .navigation__saved {
-  border-bottom: 2px solid #c4c4c4; /* Highlight the bottom border */
+.navigation__link-active_saved {
+  border-bottom: black !important;
 }
 
 /* Sign-in button styling */
@@ -56,7 +70,33 @@
   cursor: pointer;
   width: 176px;
   height: 48px;
-  
+}
+
+.navigation__saved-news_signout {
+  color: black;
+  border: black 1px solid !important;
+}
+
+.navigation__saved-news_signout-btn {
+  border: none;
+  color: black !important;
+}
+
+.navigation__signout-btn {
+  color: white;
+  border: white 1px solid;
+  border-radius: 100px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 15px;
+}
+
+.navigation__signout {
+  border: none;
+  background-color: transparent;
+  color: white;
 }
 
 .navigation__dropdown {
