@@ -50,6 +50,33 @@
   background-size: cover;
 }
 
+.card__delete-btn:after {
+  content: "Remove from saved";
+  position: absolute;
+  top: 0px;
+  right: 45px;
+  font-family: "Roboto";
+  font-size: 14px;
+  color: black;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  padding: 8px;
+  width: 124px;
+  background-color: white;
+  border-radius: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  white-space: nowrap; /* Prevent text from wrapping */
+  z-index: 101;
+}
+
+.card__delete-btn:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
 .card__save-btn:hover {
   background-image: url("../../assets/hover-icon.png");
 }
@@ -72,8 +99,18 @@
   padding: 0 24px;
 }
 
+.card__date {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #b6bcbf;
+  padding: 20px 0;
+}
+
 .card__title {
-  margin-top: 56px;
+  margin-top: 5px;
   font-family: "Roboto-Slab";
   font-weight: 400;
   font-size: 26px;
@@ -88,6 +125,16 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
+}
+
+.card__source {
+  color: #b6bcbf;
+  font-family: Roboto Slab;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
 }
 
 /* Media Queries for Responsiveness */

@@ -13,6 +13,8 @@ function NewsCard({ showText = true, showButton = true }) {
       description: "This is the description of card 1.",
       imageUrl: Photo1,
       keyword: "Baby",
+      date: "April 23, 2015",
+      source: "The New York Times",
     },
     {
       id: 2,
@@ -20,6 +22,8 @@ function NewsCard({ showText = true, showButton = true }) {
       description: "This is the description of card 2.",
       imageUrl: Photo2,
       keyword: "Baby",
+      date: "August 3, 2018",
+      source: "The Guardian",
     },
     {
       id: 3,
@@ -27,6 +31,8 @@ function NewsCard({ showText = true, showButton = true }) {
       description: "This is the description of card 3.",
       imageUrl: Photo3,
       keyword: "Baby",
+      date: "March 31, 2021",
+      source: "The Washington Post",
     },
     // Add more cards here
   ];
@@ -46,7 +52,9 @@ function NewsCard({ showText = true, showButton = true }) {
               title={card.title}
               description={card.description}
               imageUrl={card.imageUrl}
-              keyword={card.keyword}
+              keyword={card.keyword} // ?? get correct name for this
+              date={card.date} // must be month 00, 0000
+              source={card.source} //??? get correct name for this
               onDelete={() => handleDelete(card.id)}
             />
           ))}

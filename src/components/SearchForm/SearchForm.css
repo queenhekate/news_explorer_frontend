@@ -42,7 +42,7 @@
   transform: translateY(-50%);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .searchForm {
     margin-top: 50px;
   }
@@ -60,7 +60,7 @@
   }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 480px) {
   .searchForm {
     max-width: 100%; /* Make the form take up full width of the screen */
     padding: 0 16px; /* Add some padding for small screens */

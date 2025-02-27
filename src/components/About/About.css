@@ -50,7 +50,7 @@
   letter-spacing: 0px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .about__photo-container {
     width: 232px;
     height: 232px;
@@ -63,7 +63,7 @@
   }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 480px) {
   .about {
     flex-direction: column;
     margin: 0 16px;

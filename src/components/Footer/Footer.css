@@ -39,7 +39,7 @@
   width: 24px;
 }
 
-@media (max-width: 460px) {
+@media (max-width: 480px) {
   .footer {
     height: 176px;
     padding: 16px;

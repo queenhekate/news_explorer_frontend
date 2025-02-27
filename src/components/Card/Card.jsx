@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./Card.css";
 
-function Card({ imageUrl, title, description, keyword, onDelete }) {
+function Card({ imageUrl, title, description, keyword, date, source, onDelete }) {
   const [isSaved, setIsSaved] = useState(false);
   const location = useLocation();
   const isSavedNewsPage = location.pathname === "/saved-news";
@@ -27,8 +27,10 @@ function Card({ imageUrl, title, description, keyword, onDelete }) {
       </button>
       <img src={imageUrl} alt={title} className="card__image" />
       <div className="card__content">
+        <p className="card__date">{date}</p>
         <h2 className="card__title">{title}</h2>
         <p className="card__description">{description}</p>
+        <p className="card__source">{source}</p>
       </div>
     </div>
   );
