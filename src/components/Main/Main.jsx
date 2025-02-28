@@ -1,27 +1,31 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import "./Main.css";
 import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
-import IsLoadingContext from "../../context/IsLoadingContext";
 
-function Main({newsData}) {
-  const { isLoading, setIsLoading } = useContext(IsLoadingContext);
-
-  // set isLoading to true on mounting the component
-  useEffect(() => {
-    setIsLoading(true);
-    // we simulate some time to load data
-    setTimeout(() => setIsLoading(false), 3000);
-  }, [setIsLoading]);
-
+function Main({ newsData, isLoading, hasSearched }) {
+  if (!hasSearched) {
+    return null; // Hide the main content until a search is made
+  }
   return (
     <div className="main">
-       {isLoading ? (
+      {isLoading ? (
         <div className="main__preloader-container">
           <Preloader />
-          </div>
-          ) : ( 
-        <NewsCard />
+        </div>
+      ) : (
+        <>
+          {hasSearched && newsData.length === 0 && (
+            <div className="no-results">No results found</div>
+          )}
+          {newsData.length > 0 && (
+            <div className="news-cards">
+              {newsData.map((article, index) => (
+                <NewsCard key={index} article={article} />
+              ))}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

@@ -12,6 +12,7 @@ import SavedNews from "../SavedNews/SavedNews";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import RegistrationCompleteModal from "../RegistrationCompleteModal/RegistrationCompleteModal.jsx";
+import newsApiBaseUrl from "../../utils/constants.js";
 
 function App() {
   const [newsData, setNewsData] = useState([]);
@@ -21,6 +22,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const [currentUser, setCurrentUser] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [hasSearched, setHasSearched] = useState(false);
   const navigate = useNavigate();
 
   const openLoginModal = () => {
@@ -47,24 +50,35 @@ function App() {
     navigate("/");
   };
 
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    setHasSearch(true);
+  };
+
   useEffect(() => {
-    // Simulate fetching news data
     const fetchNewsData = async () => {
       setIsLoading(true);
-      // Simulate an API call to fetch news data
-      const news = [
-        { id: 1, title: "News 1", description: "Description of News 1" },
-        { id: 2, title: "News 2", description: "Description of News 2" },
-        { id: 3, title: "News 3", description: "Description of News 3" },
-      ];
-      setTimeout(() => {
-        setNewsData(news);
+      const apiKey = process.env.REACT_APP_NEWS_API_KEY;
+      const fromDate = new Date();
+      fromDate.setDate(fromDate.getDate() - 7);
+      const toDate = new Date();
+      const url = `${newsApiBaseUrl}?q=${searchQuery}&apiKey=${apiKey}&from=${fromDate.toISOString()}&to=${toDate.toISOString()}&pageSize=100`;
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        setNewsData(data.articles);
+      } catch (error) {
+        console.error("Error fetching news data:", error);
+      } finally {
         setIsLoading(false);
-      }, 2000); // 2 seconds delay to simulate loading
+      }
     };
 
-    fetchNewsData();
-  }, []);
+      if (searchQuery) {
+        fetchNewsData();
+      }
+    }, [searchQuery]);
 
   useEffect(() => {
     // Simulate fetching user data
@@ -96,11 +110,15 @@ function App() {
                     <Header 
                     openLoginModal={openLoginModal}
                     handleLogoutClick={handleLogoutClick}
-                    handleSignInClick={openLoginModal} />
+                    handleSignInClick={openLoginModal} 
+                    handleSearch={handleSearch}/>
                     <IsLoadingContext.Provider
                       value={{ isLoading, setIsLoading }}
                     >
-                      <Main newsData={newsData} />
+                      <Main 
+                      newsData={newsData}
+                      isLoading={isLoading}
+                      hasSearched={hasSearched} />
                     </IsLoadingContext.Provider>
                     <About />
                     <Footer />

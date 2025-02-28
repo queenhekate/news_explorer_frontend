@@ -10,8 +10,8 @@
   background-position: center center;
   background-repeat: no-repeat;
   color: white;
-  padding: 20px;
-  height: 100vh;
+  padding: 0;
+  height: auto;
   margin: 0 auto;
 }
 
@@ -32,6 +32,7 @@
   justify-content: center;
   width: 608px;
   text-align: left;
+  padding-bottom: 80px;
 }
 
 .header__title {
@@ -39,6 +40,7 @@
   font-weight: 400;
   font-size: 60px;
   line-height: 64px;
+  margin-top: 80px;
 }
 
 .header__description {

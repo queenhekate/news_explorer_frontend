@@ -1,9 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 
-function Header({ handleSearch, newsData, openLoginModal, handleLogoutClick, handleSignInClick }) {
+function Header({ handleSearch, openLoginModal, handleLogoutClick, handleSignInClick, onSearch }) {
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleInputChange = (event) => {
+    setSearchInput(event.target.value);
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    handleSearch(searchInput);
+  };
+  
   return (
     <div className="header">
       <Navigation 
@@ -16,7 +27,7 @@ function Header({ handleSearch, newsData, openLoginModal, handleLogoutClick, han
           Find the latest news on any topic and save them in your personal
           account
         </p>
-        <SearchForm onSearch={handleSearch} />
+        <SearchForm onSearch={onSearch} />
       </div>
     </div>
   );

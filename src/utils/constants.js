@@ -6,7 +6,11 @@ export const newsData = [
     { title: "Web Development: A Beginner's Guide", description: "An easy guide to get started with web development.", image: "https://via.placeholder.com/150" },
   ];
 
-  export const apiKey = "eeba31b13c6a4b148448fe6a9a67f230" 
+export const newsApiBaseUrl = process.env.NODE_ENV === "production" 
+  ? "https://nomoreparties.co/news/v2/everything"
+  : "https://newsapi.org/v2/everything";
+
+  export default newsApiBaseUrl;
 
   export const checkResponse = (res) => {
     if (res.ok){
