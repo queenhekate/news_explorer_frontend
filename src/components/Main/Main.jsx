@@ -4,7 +4,7 @@ import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
 import noResultsIcon from "../../assets/not-found.png";
 
-function Main({ newsData, isLoading, hasSearched, errorMessage }) {
+function Main({ newsData, isLoading, hasSearched, errorMessage, isLoggedIn }) {
   const [articlesToShow, setArticlesToShow] = React.useState(3);
 
   if (!hasSearched) {
@@ -40,13 +40,14 @@ function Main({ newsData, isLoading, hasSearched, errorMessage }) {
               </p>
             </div>
           ) : (
-          newsData.length > 0 && (
-            <NewsCard
-              newsData={newsData}
-              articlesToShow={articlesToShow}
-              handleShowMore={handleShowMore}
-            />
-          )
+            newsData.length > 0 && (
+              <NewsCard
+                newsData={newsData}
+                articlesToShow={articlesToShow}
+                handleShowMore={handleShowMore}
+                isLoggedIn={isLoggedIn}
+              />
+            )
           )}
         </>
       )}

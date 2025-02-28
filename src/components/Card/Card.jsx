@@ -34,7 +34,8 @@ function Card({
       <button
         className={`card__btn 
                   ${isSavedNewsPage ? "card__delete-btn" : "card__save-btn"} 
-                ${isSaved ? "saved" : ""}`}
+                ${isSaved ? "saved" : ""}
+                ${isLoggedIn ? "card__save-btn--no-hover" : ""}`}
         onClick={handleSaveClick}
       ></button>
       <img src={imageUrl} alt={title} className="card__image" />

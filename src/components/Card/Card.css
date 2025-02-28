@@ -67,6 +67,11 @@
   visibility: visible;
 }
 
+.card__save-btn--no-hover:hover::after {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .card__save-btn.saved {
   background-image: url("../../assets/save-icon.png");
 }
