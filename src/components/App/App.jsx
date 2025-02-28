@@ -32,7 +32,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-const [savedArticles, setSavedArticles] = useState("");  
+  const [savedArticles, setSavedArticles] = useState("");
   const navigate = useNavigate();
 
   const openLoginModal = () => {
@@ -51,10 +51,6 @@ const [savedArticles, setSavedArticles] = useState("");
 
   const closeRegisterModal = () => {
     setIsRegisterModalOpen(false);
-  };
-
-  const closeActiveModal = () => {
-    setActiveModal("");
   };
 
   const handleLogoutClick = () => {
@@ -145,7 +141,7 @@ const [savedArticles, setSavedArticles] = useState("");
       .register(email, password, username)
       .then(() => {
         handleLogin(email, password);
-        closeActiveModal();
+        closeRegisterModal();
       })
       .catch(console.error);
   };
@@ -179,7 +175,7 @@ const [savedArticles, setSavedArticles] = useState("");
         } else {
           console.error("No JWT token found.");
         }
-        closeActiveModal();
+        closeLoginModal();
       })
       .catch((err) => {
         console.error("Error logging user in:", err);
@@ -257,8 +253,9 @@ const [savedArticles, setSavedArticles] = useState("");
                 <>
                   <ProtectedRoute>
                     <SavedNews
-                    savedArticles={savedArticles}
-                    onDeleteArticle={handleDeleteArticle} />
+                      savedArticles={savedArticles}
+                      onDeleteArticle={handleDeleteArticle}
+                    />
                   </ProtectedRoute>
                 </>
               }
@@ -287,4 +284,4 @@ const [savedArticles, setSavedArticles] = useState("");
   );
 }
 
-export default App
+export default App;

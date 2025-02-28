@@ -16,7 +16,7 @@ export const checkToken = (token) => {
       resolve({
         _id: "1",
         email: "test@example.com",
-        username: "testuser",
+        username: "Elise",
       });
     } else {
       reject(new Error("Invalid token"));

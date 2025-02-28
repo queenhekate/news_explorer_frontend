@@ -14,7 +14,7 @@ function Profile() {
     <div className="profile">
       <h2 className="profile__title">Saved Articles</h2>
       <p className="profile__info">
-        {currentUser.name}, you have {savedArticlesCount} saved articles
+        {currentUser.username}, you have {savedArticlesCount} saved articles
       </p>
       <p className="profile__keywords">
         By keywords: {primaryKeywords.join(", ")}
