@@ -1,7 +1,3 @@
-import { baseURL, checkResponse } from "./constants";
-
-// Get Request -- todo
-
 export function getItems() {
     return new Promise((resolve, reject) => resolve([
       {

@@ -2,7 +2,16 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./Card.css";
 
-function Card({ title, description, imageUrl, keyword, date, source, onDelete }) {
+function Card({ 
+  title, 
+  description, 
+  imageUrl, 
+  keyword, 
+  date, 
+  source, 
+  onDelete, 
+  isLoggedIn 
+}) {
   const [isSaved, setIsSaved] = useState(false);
   const location = useLocation();
   const isSavedNewsPage = location.pathname === "/saved-news";
@@ -22,7 +31,7 @@ function Card({ title, description, imageUrl, keyword, date, source, onDelete })
                 className={`card__btn 
                   ${isSavedNewsPage ? "card__delete-btn" : "card__save-btn"} 
                 ${isSaved ? "saved" : ""}`}
-        onClick={handleSaveClick}
+       onClick={ isLoggedIn ? handleSaveClick : null}
       >
       </button>
       <img src={imageUrl} alt={title} className="card__image" />

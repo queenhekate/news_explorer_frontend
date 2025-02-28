@@ -74,6 +74,8 @@ function App() {
     setErrorMessage("");
   };
 
+  // News API fetch
+
   useEffect(() => {
     const fetchNewsData = async () => {
       setIsLoading(true);
@@ -103,6 +105,8 @@ function App() {
       fetchNewsData();
     }
   }, [searchQuery]);
+
+  // User authentication
 
   const JWT_SECRET = "jwt";
   const setToken = (token) => localStorage.setItem(JWT_SECRET, token);
@@ -248,6 +252,7 @@ function App() {
             onClose={closeLoginModal}
             title="Sign In"
             buttonText="Sign In"
+            onSignIn={handleLogin}
             onFooterLinkClick={openRegisterModal}
           />
           <RegisterModal
@@ -255,6 +260,7 @@ function App() {
             onClose={closeRegisterModal}
             title="Sign Up"
             buttonText="Sign Up"
+            onSignUp={handleRegistration}
             onFooterLinkClick={openLoginModal}
           />
           <RegistrationCompleteModal onFooterLinkClick={openLoginModal} />

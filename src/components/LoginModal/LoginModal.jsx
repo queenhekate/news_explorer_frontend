@@ -3,12 +3,21 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
 import "./LoginModal.css";
 
-function LoginModal({ isOpen, onClose, buttonText, onFooterLinkClick, title }) {
-  const { values, handleChange, errors, isValid } = useFormWithValidation();
+function LoginModal({
+  isOpen,
+  onClose,
+  onSignIn,
+  buttonText,
+  onFooterLinkClick,
+  title,
+}) {
+  const { values, handleChange, errors, isValid, resetForm } =
+    useFormWithValidation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login submitted:", values);
+    onSignIn(values.email, values.password);
+    resetForm();
   };
 
   if (!isOpen) {
