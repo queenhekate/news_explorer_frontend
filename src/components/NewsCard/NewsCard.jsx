@@ -4,10 +4,10 @@ import Card from "../Card/Card";
 
 function NewsCard({
   newsData,
-  card,
   articlesToShow,
   handleShowMore,
   onDeleteArticle,
+  onSaveArticle,
   isLoggedIn,
   showText = true,
   showButton = true,
@@ -15,6 +15,10 @@ function NewsCard({
   const handleDelete = (id) => {
     onDeleteArticle(id);
   };
+
+  const handleSave = (card) => {
+    onSaveArticle(card)
+  }
 
   return (
     <div className="newsCard">
@@ -36,6 +40,7 @@ function NewsCard({
                 })}
                 source={card.source.name}
                 onDelete={() => handleDelete(card._id)}
+                onSave={() => handleSave(card)}
                 isLoggedIn={isLoggedIn}
               />
             </div>

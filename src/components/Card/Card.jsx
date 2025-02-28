@@ -10,6 +10,7 @@ function Card({
   date,
   source,
   onDelete,
+  onSave,
   isLoggedIn,
 }) {
   const [isSaved, setIsSaved] = useState(false);
@@ -25,6 +26,7 @@ function Card({
       onDelete();
     } else {
       setIsSaved(!isSaved);
+      onSave();
     }
   };
 

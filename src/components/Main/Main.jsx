@@ -11,6 +11,8 @@ function Main({
   errorMessage,
   isLoggedIn,
   savedArticles,
+  onSaveArticle,
+  onDeleteArticle,
 }) {
   const [articlesToShow, setArticlesToShow] = React.useState(3);
 
@@ -54,6 +56,8 @@ function Main({
                 handleShowMore={handleShowMore}
                 isLoggedIn={isLoggedIn}
                 savedArticles={savedArticles}
+                onSaveArticle={onSaveArticle}
+                onDeleteArticle={onDeleteArticle}
               />
             )
           )}
