@@ -1,3 +1,5 @@
+import {newsApiBaseUrl, apiKey} from "./constants";
+
 export const authorize = (email, password) => {
     // Pretend we did a fetch request that gave us back a token
     return new Promise((resolve, reject) => {
@@ -16,7 +18,7 @@ export const authorize = (email, password) => {
   
   
   export function register(email, password, username) {
-    return request(`${baseUrl}/signup`, {
+    return request(`${newsApiBaseUrl}/signup`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -32,7 +34,7 @@ export const authorize = (email, password) => {
   
   export function login(email, password) {
     console.log(">>login", email);
-    return request(`${baseUrl}/signin`, {
+    return request(`${newsApiBaseUrl}/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +47,7 @@ export const authorize = (email, password) => {
   }
   
   export function getCurrentUser(token) {
-    return request(`${baseUrl}/users/me`, {
+    return request(`${newsApiBaseUrl}/users/me`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

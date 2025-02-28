@@ -12,8 +12,8 @@ import SavedNews from "../SavedNews/SavedNews";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import RegistrationCompleteModal from "../RegistrationCompleteModal/RegistrationCompleteModal.jsx";
-import newsApiBaseUrl from "../../utils/constants.js";
 import * as auth from "../../utils/auth.js";
+import { newsApiBaseUrl, apiKey } from "../../utils/constants.js";
 
 function App() {
   const [newsData, setNewsData] = useState([]);
@@ -77,7 +77,6 @@ function App() {
   useEffect(() => {
     const fetchNewsData = async () => {
       setIsLoading(true);
-      const apiKey = process.env.REACT_APP_NEWS_API_KEY;
       const fromDate = new Date();
       fromDate.setDate(fromDate.getDate() - 7);
       const toDate = new Date();
@@ -104,6 +103,18 @@ function App() {
       fetchNewsData();
     }
   }, [searchQuery]);
+
+
+  fetch(`${newsApiBaseUrl}?q=cats&apiKey=YOUR_API_KEY`)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => console.log(data))
+  .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
 
   const JWT_SECRET = "jwt";
   // with localStorage the key TOKEN_KEY.
