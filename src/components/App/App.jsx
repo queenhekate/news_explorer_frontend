@@ -240,6 +240,7 @@ function App() {
                       onSaveArticle={handleSaveArticle}
                       onDeleteArticle={handleDeleteArticle}
                       savedArticles={savedArticles}
+                      isLoggedIn={isLoggedIn}
                     />
                   </IsLoadingContext.Provider>
                   <About />
@@ -255,6 +256,7 @@ function App() {
                     <SavedNews
                       savedArticles={savedArticles}
                       onDeleteArticle={handleDeleteArticle}
+                      isLoggedIn={isLoggedIn}
                     />
                   </ProtectedRoute>
                 </>

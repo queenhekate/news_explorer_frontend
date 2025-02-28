@@ -8,11 +8,12 @@ function NewsCard({
   handleShowMore,
   onDeleteArticle,
   card,
+  isLoggedIn,
   showText = true,
   showButton = true,
 }) {
   const handleDelete = (id) => {
-    onDeleteArticle(card._id)
+    onDeleteArticle(card._id);
   };
 
   return (
@@ -27,14 +28,15 @@ function NewsCard({
                 title={card.title}
                 description={card.description}
                 imageUrl={card.urlToImage}
-                keyword={card.keyword} 
+                keyword={card.keyword}
                 date={new Date(card.publishedAt).toLocaleDateString("en-US", {
                   month: "long",
                   day: "numeric",
                   year: "numeric",
                 })}
                 source={card.source.name}
-                onDelete={handleDelete} 
+                onDelete={handleDelete}
+                isLoggedIn={isLoggedIn}
               />
             </div>
           ))
