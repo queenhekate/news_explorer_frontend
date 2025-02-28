@@ -23,12 +23,11 @@ function Main({ newsData, isLoading, hasSearched, errorMessage }) {
         </div>
       ) : (
         <>
-          {errorMessage && (
+          {errorMessage ? (
             <div className="main__error-message main__preloader-container">
               {errorMessage}
             </div>
-          )}
-          {hasSearched && newsData.length === 0 && (
+          ) : hasSearched && newsData.length === 0 ? (
             <div className="main__noResults main__preloader-container">
               <img
                 src={noResultsIcon}
@@ -40,13 +39,14 @@ function Main({ newsData, isLoading, hasSearched, errorMessage }) {
                 Sorry, but nothing matched your search terms.
               </p>
             </div>
-          )}
-          {!errorMessage && newsData.length > 0 && (
+          ) : (
+          newsData.length > 0 && (
             <NewsCard
               newsData={newsData}
               articlesToShow={articlesToShow}
               handleShowMore={handleShowMore}
             />
+          )
           )}
         </>
       )}

@@ -11,10 +11,6 @@ function LoginModal({ isOpen, onClose, buttonText, onFooterLinkClick, title }) {
     console.log("Login submitted:", values);
   };
 
-  // Add console.log to debug isOpen state
-  console.log("LoginModal isOpen:", isOpen);
-
-  // Early return if not open
   if (!isOpen) {
     return null;
   }
@@ -30,7 +26,7 @@ function LoginModal({ isOpen, onClose, buttonText, onFooterLinkClick, title }) {
       buttonText={buttonText}
       footerLinkText="Sign Up"
       onFooterLinkClick={onFooterLinkClick}
-      isValid={isValid} 
+      isValid={isValid}
     >
       <label className="modal__label">
         Email{" "}

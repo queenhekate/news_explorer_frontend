@@ -11,7 +11,6 @@ import { CurrentUserContext } from "../../context/CurrentUserContext";
 function Navigation({ handleLogoutClick, handleSignInClick }) {
   const [isOpen, setIsOpen] = useState(false);
   const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
-  console.log(currentUser);
   const location = useLocation();
 
   function toggleDropdown(event) {
@@ -47,7 +46,7 @@ function Navigation({ handleLogoutClick, handleSignInClick }) {
       </NavLink>
       <ul className="navigation__buttons">
         <li>
-        <NavLink
+          <NavLink
             exact
             to="/"
             className={({ isActive }) =>
@@ -68,14 +67,16 @@ function Navigation({ handleLogoutClick, handleSignInClick }) {
               exact
               to="/saved-news"
               className={({ isActive }) =>
-                `navigation__link ${isActive ? "navigation__link-active" : ""} ${
-                  isSavedNewsPage ? "navigation__link-active_saved" : ""
-                }`
+                `navigation__link ${
+                  isActive ? "navigation__link-active" : ""
+                } ${isSavedNewsPage ? "navigation__link-active_saved" : ""}`
               }
             >
               <ReusableButton
                 text="Saved Articles"
-                className={`navigation__saved ${isSavedNewsPage ? "navigation__saved-news_buttons" : ""}`}
+                className={`navigation__saved ${
+                  isSavedNewsPage ? "navigation__saved-news_buttons" : ""
+                }`}
               />
             </NavLink>
           </li>
@@ -134,14 +135,14 @@ function Navigation({ handleLogoutClick, handleSignInClick }) {
               className="navigation__link"
               onClick={toggleDropdown}
             >
-            <ReusableButton text="Home" className="navigation__home" />
+              <ReusableButton text="Home" className="navigation__home" />
             </NavLink>
             {isLoggedIn && (
               <ReusableButton
-              text="Saved Articles"
-              className="navigation__saved"
-              onClick={toggleDropdown}
-            />
+                text="Saved Articles"
+                className="navigation__saved"
+                onClick={toggleDropdown}
+              />
             )}
             <ReusableButton
               text="Sign In"

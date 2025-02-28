@@ -85,9 +85,9 @@ function App() {
       try {
         const response = await fetch(url);
         if (!response.ok) {
-          throw new Error("Failed to fetch news data");
+          throw new Error(`Error: ${response.status}`);
         }
-        const data = await checkResponse(response);
+        const data = await response.json(); //checkResponse(response);  ??
         setNewsData(data.articles);
       } catch (error) {
         console.error("Error fetching news data:", error);
@@ -104,11 +104,10 @@ function App() {
     }
   }, [searchQuery]);
 
-
   const JWT_SECRET = "jwt";
   const setToken = (token) => localStorage.setItem(JWT_SECRET, token);
   const getToken = () => {
- localStorage.getItem(JWT_SECRET);
+    return localStorage.getItem(JWT_SECRET);
   };
   const removeToken = () => {
     return localStorage.removeItem(JWT_SECRET);
@@ -122,7 +121,7 @@ function App() {
     }
 
     auth
-      .getCurrentUser(jwt)
+      .getCurrentUser(jwt) //.checkToken(jwt) ??
       .then((data) => {
         setIsLoggedInLoading(false);
         setIsLoggedIn(true);
@@ -147,7 +146,7 @@ function App() {
 
   function getUserData(token) {
     auth
-      .getCurrentUser(token)
+      .getCurrentUser(token) //.checkToken(token) ??
       .then((userData) => {
         setCurrentUser({
           _id: userData._id,
@@ -216,7 +215,8 @@ function App() {
                     openLoginModal={openLoginModal}
                     handleLogoutClick={handleLogoutClick}
                     handleSignInClick={openLoginModal}
-                    handleSearch={handleSearch}
+                    //handleSearch={handleSearch}
+                    onSearch={handleSearch}
                   />
                   <IsLoadingContext.Provider
                     value={{ isLoading, setIsLoading }}

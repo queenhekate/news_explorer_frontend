@@ -3,17 +3,16 @@ import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 
-function Header({ handleSearch, openLoginModal, handleLogoutClick, handleSignInClick, onSearch }) {
-  const [searchInput, setSearchInput] = useState("");
+function Header({ openLoginModal, handleLogoutClick, handleSignInClick, onSearch }) {
+  // const [searchInput, setSearchInput] = useState("");
+  // const handleInputChange = (event) => {
+  //   setSearchInput(event.target.value);
+  // };
 
-  const handleInputChange = (event) => {
-    setSearchInput(event.target.value);
-  };
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    handleSearch(searchInput);
-  };
+  // const handleFormSubmit = (event) => {
+  //   event.preventDefault();
+  //   onSearch(searchQuery);
+  // };
   
   return (
     <div className="header">

@@ -12,7 +12,7 @@ const apiKey = "eeba31b13c6a4b148448fe6a9a67f230"
       try {
         return JSON.parse(text);
       } catch (error) {
-        return Promise.reject(text);
+        return Promise.reject(new Error("Invalid JSON response"));
       }
     });
   };
@@ -20,3 +20,5 @@ const apiKey = "eeba31b13c6a4b148448fe6a9a67f230"
 const baseURL = "http://localhost:3000";
 
 export {apiKey, checkResponse, baseURL};
+
+     
