@@ -10,7 +10,8 @@ import { CurrentUserContext } from "../../context/CurrentUserContext";
 
 function Navigation({ handleLogoutClick, handleSignInClick }) {
   const [isOpen, setIsOpen] = useState(false);
-  const { currentUser } = useContext(CurrentUserContext);
+  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
+  console.log(currentUser);
   const location = useLocation();
 
   function toggleDropdown(event) {
@@ -55,11 +56,13 @@ function Navigation({ handleLogoutClick, handleSignInClick }) {
           >
             <ReusableButton
               text="Home"
-              className={`navigation__home ${isSavedNewsPage ? "navigation__saved-news_buttons" : ""}`}
+              className={`navigation__home ${
+                isSavedNewsPage ? "navigation__saved-news_buttons" : ""
+              }`}
             />
           </NavLink>
         </li>
-        {currentUser && (
+        {isLoggedIn && (
           <li>
             <NavLink
               exact
@@ -78,7 +81,7 @@ function Navigation({ handleLogoutClick, handleSignInClick }) {
           </li>
         )}
         <li>
-          {currentUser ? (
+          {isLoggedIn ? (
             <div
               className={`navigation__signout-btn ${
                 isSavedNewsPage ? "navigation__saved-news_signout" : ""
@@ -125,7 +128,21 @@ function Navigation({ handleLogoutClick, handleSignInClick }) {
             </button>
           </div>
           <div className="navigation__dropdown-container">
+            <NavLink
+              exact
+              to="/"
+              className="navigation__link"
+              onClick={toggleDropdown}
+            >
             <ReusableButton text="Home" className="navigation__home" />
+            </NavLink>
+            {isLoggedIn && (
+              <ReusableButton
+              text="Saved Articles"
+              className="navigation__saved"
+              onClick={toggleDropdown}
+            />
+            )}
             <ReusableButton
               text="Sign In"
               className="navigation__signin"
