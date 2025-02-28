@@ -20,7 +20,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
-  const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const [currentUser, setCurrentUser] = useState({
@@ -34,6 +33,8 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [savedArticles, setSavedArticles] = useState("");
   const navigate = useNavigate();
+
+// Modal Functionality
 
   const openLoginModal = () => {
     setIsLoginModalOpen(true);
@@ -52,6 +53,8 @@ function App() {
   const closeRegisterModal = () => {
     setIsRegisterModalOpen(false);
   };
+
+  // Functions
 
   const handleLogoutClick = () => {
     console.log("Logout button clicked");

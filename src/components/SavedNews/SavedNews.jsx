@@ -8,15 +8,27 @@ import { CurrentUserContext } from "../../context/CurrentUserContext";
 
 function SavedNews({ savedArticles, onDeleteArticle, isLoggedIn }) {
   const { currentUser } = useContext(CurrentUserContext);
+  
   return (
     <div className="savedNews">
       <Navigation />
       <Profile />
-      <NewsCard 
-      onDeleteArticle={onDeleteArticle}
-      showText={false} 
-      showButton={false}
-      isLoggedIn={isLoggedIn} />
+      <div className="savedNews__content">
+        {savedArticles.length > 0 ? (
+          savedArticles.map((card) => (
+            <NewsCard
+              key={card._id}
+              card={card}
+              onDeleteArticle={onDeleteArticle}
+              showText={false}
+              showButton={false}
+              isLoggedIn={isLoggedIn}
+            />
+          ))
+        ) : (
+          <p className="savedNews__no-articles"></p>
+        )}
+      </div>
       <Footer />
     </div>
   );
