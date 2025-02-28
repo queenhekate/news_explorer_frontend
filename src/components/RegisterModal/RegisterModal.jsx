@@ -8,18 +8,20 @@ import RegistrationCompleteModal from "../RegistrationCompleteModal/Registration
 function RegisterModal({
   isOpen,
   onClose,
+  onSignUp,
   buttonText,
   onFooterLinkClick,
   title,
 }) {
-  const { values, handleChange, errors, isValid } = useFormWithValidation();
+  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
   const [isRegistrationComplete, setIsRegistrationComplete] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Register submitted:", values);
+    onSignUp(values.email, values.password, values.username);
     setIsRegistrationComplete(true);
     onClose();
+    resetForm();
   };
 
   const handleRegistrationCompleteClose = () => {
@@ -41,6 +43,7 @@ function RegisterModal({
         buttonText={buttonText}
         footerLinkText="Sign In"
         onFooterLinkClick={onFooterLinkClick}
+        isValid={isValid}
       >
         <label className="modal__label">
           Email{" "}
