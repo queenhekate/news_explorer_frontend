@@ -32,6 +32,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+const [savedArticles, setSavedArticles] = useState("");  
   const navigate = useNavigate();
 
   const openLoginModal = () => {
@@ -121,6 +122,7 @@ function App() {
     const jwt = getToken();
     if (!jwt) {
       console.log("No token found in local storage");
+      setIsLoggedInLoading(false);
       return;
     }
 
@@ -187,6 +189,16 @@ function App() {
       });
   };
 
+  const handleSaveArticle = (article) => {
+    setSavedArticles((prevArticles) => [...prevArticles, article]);
+  };
+
+  const handleDeleteArticle = (articleId) => {
+    setSavedArticles((prevArticles) =>
+      prevArticles.filter((article) => article._id !== articleId)
+    );
+  };
+
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -229,6 +241,9 @@ function App() {
                       isLoading={isLoading}
                       hasSearched={hasSearched}
                       errorMessage={errorMessage}
+                      onSaveArticle={handleSaveArticle}
+                      onDeleteArticle={handleDeleteArticle}
+                      savedArticles={savedArticles}
                     />
                   </IsLoadingContext.Provider>
                   <About />
@@ -241,7 +256,9 @@ function App() {
               element={
                 <>
                   <ProtectedRoute>
-                    <SavedNews />
+                    <SavedNews
+                    savedArticles={savedArticles}
+                    onDeleteArticle={handleDeleteArticle} />
                   </ProtectedRoute>
                 </>
               }

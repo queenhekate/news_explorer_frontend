@@ -6,13 +6,16 @@ import NewsCard from "../NewsCard/NewsCard";
 import Footer from "../Footer/Footer";
 import { CurrentUserContext } from "../../context/CurrentUserContext";
 
-function SavedNews({}) {
+function SavedNews({ savedArticles, onDeleteArticle}) {
   const { currentUser } = useContext(CurrentUserContext);
   return (
     <div className="savedNews">
       <Navigation />
       <Profile />
-      <NewsCard showText={false} showButton={false} />
+      <NewsCard 
+      onDeleteArticle={onDeleteArticle}
+      showText={false} 
+      showButton={false} />
       <Footer />
     </div>
   );

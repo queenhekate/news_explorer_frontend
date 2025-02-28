@@ -6,11 +6,13 @@ function NewsCard({
   newsData,
   articlesToShow,
   handleShowMore,
+  onDeleteArticle,
+  card,
   showText = true,
   showButton = true,
 }) {
   const handleDelete = (id) => {
-    setSavedArticles(savedArticles.filter((article) => article.id !== id));
+    onDeleteArticle(card._id)
   };
 
   return (
@@ -25,14 +27,14 @@ function NewsCard({
                 title={card.title}
                 description={card.description}
                 imageUrl={card.urlToImage}
-                keyword={card.keyword} // Assuming keyword is part of the card data
+                keyword={card.keyword} 
                 date={new Date(card.publishedAt).toLocaleDateString("en-US", {
                   month: "long",
                   day: "numeric",
                   year: "numeric",
                 })}
                 source={card.source.name}
-                onDelete={() => handleDelete(card.id)} //check validity of card.id
+                onDelete={handleDelete} 
               />
             </div>
           ))

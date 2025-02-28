@@ -1,19 +1,45 @@
 import { apiKey, checkResponse } from "./constants";
 
 export const authorize = (email, password) => {
-  // Pretend we did a fetch request that gave us back a token
   return new Promise((resolve, reject) => {
-    resolve({ token: "a fake token" });
+    if (email === "test@example.com" && password === "password") {
+      resolve({ token: "fake-jwt-token" });
+    } else {
+      reject(new Error("Invalid email or password"));
+    }
   });
 };
 
 export const checkToken = (token) => {
-  // Pretend we did a fetch request that gave us back a user
   return new Promise((resolve, reject) => {
-    resolve({
-      data: { name: "fake user", email: "fake@example.com", _id: "fake-id" },
-    });
+    if (token === "fake-jwt-token") {
+      resolve({
+        _id: "1",
+        email: "test@example.com",
+        username: "testuser",
+      });
+    } else {
+      reject(new Error("Invalid token"));
+    }
   });
+};
+
+export const register = (email, password, username) => {
+  return new Promise((resolve, reject) => {
+    if (email && password && username) {
+      resolve();
+    } else {
+      reject(new Error("Registration failed"));
+    }
+  });
+};
+
+export const login = (email, password) => {
+  return authorize(email, password);
+};
+
+export const getCurrentUser = (token) => {
+  return checkToken(token);
 };
 
 /// To Do: Backend API Calls ///
