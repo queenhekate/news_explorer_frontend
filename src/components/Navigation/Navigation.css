@@ -62,7 +62,18 @@
 }
 
 /* Sign-in button styling */
-.navigation__signin .navigation__username {
+.navigation__signin {
+  color: white;
+  background-color: transparent;
+  border-radius: 100px;
+  padding: 8px 16px; /* Adds padding for better button size */
+  border: 2px solid white; /* Adds a border to make the button visible */
+  cursor: pointer;
+  width: 176px;
+  height: 48px;
+}
+
+.navigation__username {
   color: white;
   background-color: transparent;
   border-radius: 100px;

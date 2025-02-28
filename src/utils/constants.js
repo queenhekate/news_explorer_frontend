@@ -17,7 +17,7 @@ const apiKey = "eeba31b13c6a4b148448fe6a9a67f230"
     });
   };
 
-const baseURL = "http://localhost:3000";
+const baseURL = "https://newsapi.org/v2/everything";
 
 export {apiKey, checkResponse, baseURL};
 

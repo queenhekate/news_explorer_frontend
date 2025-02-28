@@ -10,6 +10,9 @@
 .newsCard__container {
   max-width: 1200px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
 .newsCard__text {
@@ -49,6 +52,7 @@
   border: none;
   width: 288px;
   height: 64px;
+  padding: 10px 20px;
 }
 
 /* Media Queries for Responsiveness */
@@ -69,6 +73,9 @@
 }
 
 @media (max-width: 480px) {
+  .newsCard__container {
+    grid-template-columns: 1fr;
+  }
   .newsCard__text {
     font-size: 18px;
     margin-bottom: 10px;

@@ -1,6 +1,6 @@
 .card {
-  height: 576px;
-  width: 400px;
+  height: auto;
+  width: 100%;
   background-color: #ffffff;
   border-radius: 15px;
   position: relative;
@@ -119,8 +119,8 @@
 
 .card__description {
   color: #555;
-  margin-top: 46px;
-  margin-bottom: 84px;
+  margin-top: 26px;
+  margin-bottom: 54px;
   font-family: "Roboto";
   font-weight: 400;
   font-size: 16px;
@@ -135,13 +135,14 @@
   line-height: 20px;
   letter-spacing: 0.4px;
   text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .card {
     height: auto;
-    width: 90%;
+    width: 100%;
     margin: 16px auto;
   }
 
