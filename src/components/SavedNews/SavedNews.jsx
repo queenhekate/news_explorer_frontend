@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import "./SavedNews.css";
 import Navigation from "../Navigation/Navigation";
 import Profile from "../Profile/Profile";
@@ -8,7 +8,7 @@ import { CurrentUserContext } from "../../context/CurrentUserContext";
 
 function SavedNews({ savedArticles, onDeleteArticle, isLoggedIn }) {
   const { currentUser } = useContext(CurrentUserContext);
-  
+
   return (
     <div className="savedNews">
       <Navigation />

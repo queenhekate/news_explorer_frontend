@@ -4,7 +4,14 @@ import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
 import noResultsIcon from "../../assets/not-found.png";
 
-function Main({ newsData, isLoading, hasSearched, errorMessage, isLoggedIn }) {
+function Main({
+  newsData,
+  isLoading,
+  hasSearched,
+  errorMessage,
+  isLoggedIn,
+  savedArticles,
+}) {
   const [articlesToShow, setArticlesToShow] = React.useState(3);
 
   if (!hasSearched) {
@@ -46,6 +53,7 @@ function Main({ newsData, isLoading, hasSearched, errorMessage, isLoggedIn }) {
                 articlesToShow={articlesToShow}
                 handleShowMore={handleShowMore}
                 isLoggedIn={isLoggedIn}
+                savedArticles={savedArticles}
               />
             )
           )}

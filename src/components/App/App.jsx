@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Route, Routes } from "react-router-dom";
 import { CurrentUserContext } from "../../context/CurrentUserContext";
 import IsLoadingContext from "../../context/IsLoadingContext.js";
@@ -31,7 +31,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [savedArticles, setSavedArticles] = useState("");
+  const [savedArticles, setSavedArticles] = useState([]);
   const navigate = useNavigate();
 
 // Modal Functionality
@@ -188,32 +188,32 @@ function App() {
       });
   };
 
-  const handleSaveArticle = (article) => {
-    setSavedArticles((prevArticles) => [...prevArticles, article]);
+  const handleSaveArticle = (card) => {
+    setSavedArticles((prevCards) => [...prevCards, card]);
   };
 
-  const handleDeleteArticle = (articleId) => {
-    setSavedArticles((prevArticles) =>
-      prevArticles.filter((article) => article._id !== articleId)
+  const handleDeleteArticle = (cardId) => {
+    setSavedArticles((prevCards) =>
+      prevCards.filter((card) => card._id !== cardId)
     );
   };
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await fetch("/api/user");
-        if (!response.ok) {
-          throw new Error("Failed to fetch user data");
-        }
-        const user = await checkResponse(response);
-        setCurrentUser(user);
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchUserData = async () => {
+  //     try {
+  //       const response = await fetch("/api/user");
+  //       if (!response.ok) {
+  //         throw new Error("Failed to fetch user data");
+  //       }
+  //       const user = await checkResponse(response);
+  //       setCurrentUser(user);
+  //     } catch (error) {
+  //       console.error("Error fetching user data:", error);
+  //     }
+  //   };
 
-    fetchUserData();
-  }, []);
+  //   fetchUserData();
+  // }, []);
 
   return (
     <CurrentUserContext.Provider

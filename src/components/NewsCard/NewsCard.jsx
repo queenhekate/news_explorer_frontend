@@ -4,10 +4,10 @@ import Card from "../Card/Card";
 
 function NewsCard({
   newsData,
+  card,
   articlesToShow,
   handleShowMore,
   onDeleteArticle,
-  card,
   isLoggedIn,
   showText = true,
   showButton = true,
