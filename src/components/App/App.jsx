@@ -13,7 +13,7 @@ import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import RegistrationCompleteModal from "../RegistrationCompleteModal/RegistrationCompleteModal.jsx";
 import * as auth from "../../utils/auth.js";
-import { newsApiBaseUrl, apiKey } from "../../utils/constants.js";
+import { baseURL, apiKey, checkResponse } from "../../utils/constants.js";
 
 function App() {
   const [newsData, setNewsData] = useState([]);
@@ -80,14 +80,14 @@ function App() {
       const fromDate = new Date();
       fromDate.setDate(fromDate.getDate() - 7);
       const toDate = new Date();
-      const url = `${newsApiBaseUrl}?q=${searchQuery}&apiKey=${apiKey}&from=${fromDate.toISOString()}&to=${toDate.toISOString()}&pageSize=100`;
+      const url = `${baseURL}?q=${searchQuery}&apiKey=${apiKey}&from=${fromDate.toISOString()}&to=${toDate.toISOString()}&pageSize=100`;
 
       try {
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error("Failed to fetch news data");
         }
-        const data = await response.json();
+        const data = await checkResponse(response);
         setNewsData(data.articles);
       } catch (error) {
         console.error("Error fetching news data:", error);
@@ -105,25 +105,11 @@ function App() {
   }, [searchQuery]);
 
 
-  fetch(`${newsApiBaseUrl}?q=cats&apiKey=YOUR_API_KEY`)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => console.log(data))
-  .catch(error => console.error('There has been a problem with your fetch operation:', error));
-
-
   const JWT_SECRET = "jwt";
-  // with localStorage the key TOKEN_KEY.
   const setToken = (token) => localStorage.setItem(JWT_SECRET, token);
-  // getToken retrieves and returns the value associated with TOKEN_KEY from localStorage.
   const getToken = () => {
-    return localStorage.getItem(JWT_SECRET);
+ localStorage.getItem(JWT_SECRET);
   };
-
   const removeToken = () => {
     return localStorage.removeItem(JWT_SECRET);
   };
@@ -160,12 +146,9 @@ function App() {
   };
 
   function getUserData(token) {
-    // use the token from the local storage
     auth
       .getCurrentUser(token)
-      // fetch the data from the api
       .then((userData) => {
-        // set the currentUser in this function, not on the login function
         setCurrentUser({
           _id: userData._id,
           email: userData.email,
@@ -201,21 +184,22 @@ function App() {
       });
   };
 
-  // useEffect(() => {
-  //   const fetchUserData = async () => {
-  //     const user = {
-  //       _id: {user.id},
-  //       email: {user.email},
-  //       name: {user.name},
-  //       username: {user.username},
-  //       savedArticlesCount: {user.savedArticlesCount},
-  //       keywords: [user.keywords],
-  //     };
-  //     setCurrentUser(user);
-  //   };
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch("/api/user");
+        if (!response.ok) {
+          throw new Error("Failed to fetch user data");
+        }
+        const user = await checkResponse(response);
+        setCurrentUser(user);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
 
-  //   fetchUserData();
-  // }, []);
+    fetchUserData();
+  }, []);
 
   return (
     <CurrentUserContext.Provider
