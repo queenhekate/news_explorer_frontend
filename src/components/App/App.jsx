@@ -215,7 +215,6 @@ function App() {
                     openLoginModal={openLoginModal}
                     handleLogoutClick={handleLogoutClick}
                     handleSignInClick={openLoginModal}
-                    //handleSearch={handleSearch}
                     onSearch={handleSearch}
                   />
                   <IsLoadingContext.Provider
@@ -265,4 +264,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

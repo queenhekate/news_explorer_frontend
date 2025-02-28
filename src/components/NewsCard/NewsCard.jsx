@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import "./NewsCard.css";
 import Card from "../Card/Card";
-import Photo1 from "../../assets/baby-photo-1.jpg";
-import Photo2 from "../../assets/baby-photo-2.jpg";
-import Photo3 from "../../assets/baby-photo-3.jpg";
+
 
 function NewsCard({ newsData, articlesToShow, handleShowMore, showText = true, showButton = true }) {
-  const cards = [""];
 
   const handleDelete = (id) => {
     setSavedArticles(savedArticles.filter((article) => article.id !== id));
