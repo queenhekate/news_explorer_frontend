@@ -13,8 +13,8 @@ function NewsCard({
   showText = true,
   showButton = true,
 }) {
-  const handleDelete = (id) => {
-    onDeleteArticle(id);
+  const handleDelete = (publishedAt) => {
+    onDeleteArticle(publishedAt);
   };
 
   const handleSave = (card) => {
@@ -40,7 +40,7 @@ function NewsCard({
                   year: "numeric",
                 })}
                 source={card.source.name}
-                onDelete={() => handleDelete(card._id)}
+                onDelete={() => handleDelete(card.publishedAt)}
                 onSave={() => handleSave(card)}
                 isLoggedIn={isLoggedIn}
               />

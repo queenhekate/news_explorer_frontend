@@ -12,6 +12,7 @@ function Card({
   onDelete,
   onSave,
   isLoggedIn,
+  key,
 }) {
   const [isSaved, setIsSaved] = useState(false);
   const location = useLocation();

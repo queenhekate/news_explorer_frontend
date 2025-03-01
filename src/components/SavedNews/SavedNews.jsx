@@ -35,7 +35,7 @@ function SavedNews({
               })}
               source={card.source.name}
               card={card}
-              onDeleteArticle={onDeleteArticle}
+              onDeleteArticle={() => onDeleteArticle(card.publishedAt)}
               showText={false}
               showButton={false}
               isLoggedIn={isLoggedIn}

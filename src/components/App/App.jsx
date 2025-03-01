@@ -26,8 +26,8 @@ function App() {
     _id: "",
     email: "",
     username: "",
-    savedArticles: "",
-    keywords: "",
+    savedArticles: [],
+    keywords: [],
   });
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -195,9 +195,9 @@ function App() {
     setSavedArticles((prevCards) => [...prevCards, cardWithKeyword]);
   };
 
-  const handleDeleteArticle = (cardId) => {
+  const handleDeleteArticle = (publishedAt) => {
     setSavedArticles(
-      (prevCards) => prevCards.filter((card) => card._id !== cardId) //need to change Id to Published At
+      (prevCards) => prevCards.filter((card) => card.publishedAt !== publishedAt) //need to change Id to Published At
     );
   };
 
