@@ -26,6 +26,8 @@ function App() {
     _id: "",
     email: "",
     username: "",
+    savedArticles: "",
+    keywords: "",
   });
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -34,7 +36,7 @@ function App() {
   const [savedArticles, setSavedArticles] = useState([]);
   const navigate = useNavigate();
 
-// Modal Functionality
+  // Modal Functionality
 
   const openLoginModal = () => {
     setIsLoginModalOpen(true);
@@ -260,6 +262,7 @@ function App() {
                       savedArticles={savedArticles}
                       onDeleteArticle={handleDeleteArticle}
                       isLoggedIn={isLoggedIn}
+                      newsData={newsData}
                     />
                   </ProtectedRoute>
                 </>

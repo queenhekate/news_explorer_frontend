@@ -2,33 +2,43 @@ import { useContext } from "react";
 import "./SavedNews.css";
 import Navigation from "../Navigation/Navigation";
 import Profile from "../Profile/Profile";
-import NewsCard from "../NewsCard/NewsCard";
+import Card from "../Card/Card";
 import Footer from "../Footer/Footer";
 import { CurrentUserContext } from "../../context/CurrentUserContext";
 
-function SavedNews({ savedArticles, onDeleteArticle, isLoggedIn }) {
+function SavedNews({ savedArticles, onDeleteArticle, isLoggedIn, card, newsData }) {
   const { currentUser } = useContext(CurrentUserContext);
-
+  console.log("savedArticles:", savedArticles); // Log the savedArticles array
   return (
     <div className="savedNews">
       <Navigation />
-      <Profile />
+      <Profile 
+      savedArticles={savedArticles}/>
       <div className="savedNews__content">
-        {savedArticles.length > 0 ? (
-          savedArticles.map((card) => (
-            <NewsCard
-              key={card._id}
-              card={card}
-              onDeleteArticle={onDeleteArticle}
-              showText={false}
-              showButton={false}
-              isLoggedIn={isLoggedIn}
-            />
-          ))
-        ) : (
-          <p className="savedNews__no-articles"></p>
-        )}
-      </div>
+{savedArticles.map((card) => {
+   console.log("Current card:", card); // Log each card object
+   return(
+    <Card
+      key={card.publishedAt}
+      title={card.title}
+      description={card.description}
+      imageUrl={card.urlToImage}
+      keyword={card.keyword}
+      date={new Date(card.publishedAt).toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
+      source={card.source.name}
+      card={card}
+      onDeleteArticle={onDeleteArticle}
+      showText={false}
+      showButton={false}
+      isLoggedIn={isLoggedIn}
+    />
+   );
+})}
+        </div>
       <Footer />
     </div>
   );
