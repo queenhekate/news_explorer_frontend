@@ -1,16 +1,16 @@
 .savedNews {
-  padding: 20px;
+  padding: 0;
 }
 
 .savedNews__content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  padding: 20px;
 }
 
 @media (max-width: 768px) {
   .savedNews__content {
-    
   }
 }
 

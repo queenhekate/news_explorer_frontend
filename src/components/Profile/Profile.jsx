@@ -7,7 +7,10 @@ function Profile({savedArticles}) {
   console.log(currentUser)
 
   const savedArticlesCount = savedArticles.length || 0;
-  const keywords = savedArticles.map((card) => card.keyword);
+  const keywords = savedArticles
+  .map((card) => card.keyword)
+  .filter((keyword) => keyword);
+  
   const keywordCounts = keywords.reduce((acc, keyword) => {
     acc[keyword] = (acc[keyword] || 0) + 1;
     return acc;
@@ -19,8 +22,6 @@ function Profile({savedArticles}) {
 
   const primaryKeywords = sortedKeywords.slice(0, 2);
   const additionalKeywordsCount = sortedKeywords.length > 2 ? sortedKeywords.length - 2 : 0;
-
-//todo get length of array 
 
 
   return (
