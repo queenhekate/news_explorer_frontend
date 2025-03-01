@@ -9,6 +9,7 @@ function NewsCard({
   onDeleteArticle,
   onSaveArticle,
   isLoggedIn,
+  searchQuery,
   showText = true,
   showButton = true,
 }) {
@@ -17,8 +18,8 @@ function NewsCard({
   };
 
   const handleSave = (card) => {
-    onSaveArticle(card)
-  }
+    onSaveArticle(card);
+  };
 
   return (
     <div className="newsCard">
@@ -32,7 +33,7 @@ function NewsCard({
                 title={card.title}
                 description={card.description}
                 imageUrl={card.urlToImage}
-                keyword={card.keyword}
+                keyword={searchQuery}
                 date={new Date(card.publishedAt).toLocaleDateString("en-US", {
                   month: "long",
                   day: "numeric",

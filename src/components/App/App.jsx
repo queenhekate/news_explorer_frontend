@@ -191,12 +191,13 @@ function App() {
   };
 
   const handleSaveArticle = (card) => {
-    setSavedArticles((prevCards) => [...prevCards, card]);
+    const cardWithKeyword = { ...card, keyword: searchQuery };
+    setSavedArticles((prevCards) => [...prevCards, cardWithKeyword]);
   };
 
   const handleDeleteArticle = (cardId) => {
-    setSavedArticles((prevCards) =>
-      prevCards.filter((card) => card._id !== cardId)
+    setSavedArticles(
+      (prevCards) => prevCards.filter((card) => card._id !== cardId) //need to change Id to Published At
     );
   };
 
@@ -239,6 +240,7 @@ function App() {
                   >
                     <Main
                       newsData={newsData}
+                      searchQuery={searchQuery}
                       isLoading={isLoading}
                       hasSearched={hasSearched}
                       errorMessage={errorMessage}
@@ -263,6 +265,7 @@ function App() {
                       onDeleteArticle={handleDeleteArticle}
                       isLoggedIn={isLoggedIn}
                       newsData={newsData}
+                      searchQuery={searchQuery}
                     />
                   </ProtectedRoute>
                 </>

@@ -10,15 +10,14 @@ function SavedNews({
   savedArticles,
   onDeleteArticle,
   isLoggedIn,
-  card,
-  newsData,
+  searchQuery,
 }) {
   const { currentUser } = useContext(CurrentUserContext);
   console.log("savedArticles:", savedArticles); // Log the savedArticles array
   return (
     <div className="savedNews">
       <Navigation />
-      <Profile savedArticles={savedArticles} card={card} />
+      <Profile savedArticles={savedArticles} searchQuery={searchQuery} />
       <div className="savedNews__content">
         {savedArticles.map((card) => {
           console.log("Current card:", card); // Log each card object
@@ -28,7 +27,7 @@ function SavedNews({
               title={card.title}
               description={card.description}
               imageUrl={card.urlToImage}
-              keyword={card.keyword}
+              keyword={searchQuery}
               date={new Date(card.publishedAt).toLocaleDateString("en-US", {
                 month: "long",
                 day: "numeric",

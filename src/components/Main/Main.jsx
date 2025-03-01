@@ -13,6 +13,7 @@ function Main({
   savedArticles,
   onSaveArticle,
   onDeleteArticle,
+  searchQuery
 }) {
   const [articlesToShow, setArticlesToShow] = React.useState(3);
 
@@ -52,6 +53,7 @@ function Main({
             newsData.length > 0 && (
               <NewsCard
                 newsData={newsData}
+                searchQuery={searchQuery}
                 articlesToShow={articlesToShow}
                 handleShowMore={handleShowMore}
                 isLoggedIn={isLoggedIn}

@@ -2,33 +2,40 @@ import React, { useContext } from "react";
 import { CurrentUserContext } from "../../context/CurrentUserContext";
 import "./Profile.css";
 
-function Profile({savedArticles}) {
+function Profile({ savedArticles, searchQuery }) {
   const { currentUser } = useContext(CurrentUserContext);
-  console.log(currentUser)
+  console.log(currentUser);
 
   const savedArticlesCount = savedArticles.length || 0;
   const keywords = savedArticles
-  .map((card) => card.keyword)
-  .filter((keyword) => keyword);
-  
+    .map((article) => article.keyword)
+    .filter((keyword) => keyword);
+
+  console.log("keywords:", keywords);
+
+
   const keywordCounts = keywords.reduce((acc, keyword) => {
     acc[keyword] = (acc[keyword] || 0) + 1;
     return acc;
   }, {});
-  
+
+  console.log("Keyword Counts:", keywordCounts);
+
   const sortedKeywords = Object.keys(keywordCounts).sort(
     (a, b) => keywordCounts[b] - keywordCounts[a]
   );
 
-  const primaryKeywords = sortedKeywords.slice(0, 2);
-  const additionalKeywordsCount = sortedKeywords.length > 2 ? sortedKeywords.length - 2 : 0;
+  console.log("Sorted Ketwords:", sortedKeywords);
 
+  const primaryKeywords = sortedKeywords.slice(0, 2);
+  const additionalKeywordsCount =
+    sortedKeywords.length > 2 ? sortedKeywords.length - 2 : 0;
 
   return (
     <div className="profile">
       <h2 className="profile__title">Saved Articles</h2>
       <p className="profile__info">
-        {currentUser.username}, you have {savedArticlesCount} saved articles 
+        {currentUser.username}, you have {savedArticlesCount} saved articles
       </p>
       <p className="profile__keywords">
         By keywords: {primaryKeywords.join(", ")}
