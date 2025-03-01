@@ -27,7 +27,7 @@ function SavedNews({
               title={card.title}
               description={card.description}
               imageUrl={card.urlToImage}
-              keyword={searchQuery}
+              keyword={card.searchQuery}
               date={new Date(card.publishedAt).toLocaleDateString("en-US", {
                 month: "long",
                 day: "numeric",
@@ -35,7 +35,7 @@ function SavedNews({
               })}
               source={card.source.name}
               card={card}
-              onDeleteArticle={() => onDeleteArticle(card.publishedAt)}
+              onDelete={() => onDeleteArticle(card.publishedAt)}
               showText={false}
               showButton={false}
               isLoggedIn={isLoggedIn}
