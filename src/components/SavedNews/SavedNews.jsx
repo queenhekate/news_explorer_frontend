@@ -14,6 +14,7 @@ function SavedNews({
 }) {
   const { currentUser } = useContext(CurrentUserContext);
   console.log("savedArticles:", savedArticles); // Log the savedArticles array
+
   return (
     <div className="savedNews">
       <Navigation />
@@ -27,7 +28,7 @@ function SavedNews({
               title={card.title}
               description={card.description}
               imageUrl={card.urlToImage}
-              keyword={card.searchQuery}
+              keyword={card.keyword}
               date={new Date(card.publishedAt).toLocaleDateString("en-US", {
                 month: "long",
                 day: "numeric",
@@ -39,6 +40,7 @@ function SavedNews({
               showText={false}
               showButton={false}
               isLoggedIn={isLoggedIn}
+              searchQuery={searchQuery}
             />
           );
         })}

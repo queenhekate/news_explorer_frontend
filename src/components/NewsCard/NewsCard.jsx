@@ -18,7 +18,8 @@ function NewsCard({
   };
 
   const handleSave = (card) => {
-    onSaveArticle(card);
+    const cardWithKeyword = { ...card, keyword: searchQuery };
+    onSaveArticle(cardWithKeyword);
   };
 
   return (
@@ -43,6 +44,7 @@ function NewsCard({
                 onDelete={() => handleDelete(card.publishedAt)}
                 onSave={() => handleSave(card)}
                 isLoggedIn={isLoggedIn}
+                searchQuery={searchQuery}
               />
             </div>
           ))

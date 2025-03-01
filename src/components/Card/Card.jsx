@@ -6,12 +6,13 @@ function Card({
   title,
   description,
   imageUrl,
-  keyword,
   date,
   source,
   onDelete,
   onSave,
   isLoggedIn,
+  keyword,
+  searchQuery,
 }) {
   const [isSaved, setIsSaved] = useState(false);
   const location = useLocation();
@@ -26,7 +27,14 @@ function Card({
       onDelete();
     } else {
       setIsSaved(!isSaved);
-      onSave();
+      onSave({
+        title,
+        description,
+        imageUrl,
+        keyword: searchQuery,
+        date,
+        source,
+      });
     }
   };
 
