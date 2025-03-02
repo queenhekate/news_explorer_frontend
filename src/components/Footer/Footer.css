@@ -27,6 +27,12 @@
   cursor: pointer;
 }
 
+.footer__links-mobileView {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
 .footer__links a {
   text-decoration: none;
   color: inherit;
@@ -63,7 +69,6 @@
   .footer__links-mobileView {
     width: 200px;
     height: 72px;
-    display: flex;
     flex-direction: column;
     gap: 25px;
   }

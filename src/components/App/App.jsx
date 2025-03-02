@@ -13,7 +13,7 @@ import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import RegistrationCompleteModal from "../RegistrationCompleteModal/RegistrationCompleteModal.jsx";
 import * as auth from "../../utils/auth.js";
-import { baseURL, apiKey, checkResponse } from "../../utils/constants.js";
+import { baseURL, apiKey } from "../../utils/constants.js";
 
 function App() {
   const [newsData, setNewsData] = useState([]);
@@ -197,7 +197,8 @@ function App() {
 
   const handleDeleteArticle = (publishedAt) => {
     setSavedArticles(
-      (prevCards) => prevCards.filter((card) => card.publishedAt !== publishedAt) //need to change Id to Published At
+      (prevCards) =>
+        prevCards.filter((card) => card.publishedAt !== publishedAt) //need to change Id to Published At
     );
   };
 
@@ -236,6 +237,7 @@ function App() {
                     onSearch={handleSearch}
                     currentUser={currentUser}
                     isLoggedIn={isLoggedIn}
+                    isLoggedInLoading={isLoggedInLoading}
                   />
                   <IsLoadingContext.Provider
                     value={{ isLoading, setIsLoading }}
