@@ -1,6 +1,7 @@
 .card {
   height: auto;
-  width: 100%;
+  width: 400px;
+  max-height: 576px;
   max-width: 400px;
   background-color: #ffffff;
   border-radius: 15px;
@@ -119,7 +120,7 @@
 }
 
 .card__image {
-  width: 100%;
+  width: 400px;
   height: 272px;
   object-fit: cover;
   border-radius: 15px 15px 0 0;
@@ -140,7 +141,7 @@
   line-height: 24px;
   letter-spacing: 0px;
   color: #b6bcbf;
-  padding: 20px 0;
+  padding: 10px 0 0;
 }
 
 .card__title {
@@ -153,17 +154,23 @@
 
 .card__description {
   color: #555;
-  margin-top: 26px;
-  margin-bottom: 54px;
+  margin: 10px 0;
   font-family: "Roboto";
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
+  height: 110px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Limit to 5 lines */
+  line-clamp: 5; /* Limit to 5 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card__source {
   color: #b6bcbf;
-  font-family: Roboto Slab;
+  font-family: "Roboto-Slab";
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
@@ -202,6 +209,7 @@
   .card {
     height: auto;
     width: 100%;
+    max-width: 288px;
     margin: 8px auto;
   }
 
@@ -210,7 +218,7 @@
   }
 
   .card__title {
-    margin-top: 30px;
+    margin-top: 0;
     font-size: 20px;
     line-height: 24px;
   }

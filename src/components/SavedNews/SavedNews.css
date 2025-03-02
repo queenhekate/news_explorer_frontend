@@ -9,10 +9,11 @@
   padding: 20px;
 }
 
-/* @media (max-width: 768px) {
+@media (max-width: 609px) {
   .savedNews__content {
+    grid-template-columns: repeat(2, 1fr);
   }
-} */
+}
 
 @media (max-width: 480px) {
   .savedNews__content {
