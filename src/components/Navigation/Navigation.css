@@ -179,12 +179,13 @@
   .navigation {
     padding: 0 20px;
     height: 70px;
+    justify-content: center;
   }
   .navigation__user {
     font-size: 16px; /* Example of a style */
   }
   .navigation__buttons {
-    padding: 20px;
+    padding-left: 20px;
   }
   .navigation__signin {
     width: 152px;
@@ -199,6 +200,7 @@
   .navigation {
     padding: 0 16px;
     height: 56px;
+    justify-content: space-between;
   }
   /* Your styles for screens 320px and below go here */
   .navigation__user {
