@@ -1,8 +1,15 @@
-.page {
-  background-color: #FFFFFF;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.page__content {
-    max-width: 1360px;
-    margin: 0 auto;
+body,
+html {
+  height: 100%;
+  font-family: "Roboto", "Roboto-Slab", "Inter", sans-serif;
+}
+
+.page {
+  background-color: #ffffff;
 }

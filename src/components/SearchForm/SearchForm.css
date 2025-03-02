@@ -1,0 +1,83 @@
+.searchForm {
+  position: relative; /* Create a positioning context for the button */
+  width: 100%; /* The width of the search bar (or adjust as needed) */
+  max-width: 608px;
+  margin-top: 78px;
+}
+
+.searchForm__input {
+  width: 90%;
+  border: 1px solid #ccc;
+  border-radius: 100px;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  height: 64px;
+  width: 100%; /* Makes the input take full width of its container */
+  padding: 10px 40px 10px 30px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.searchForm__button {
+  background-color: #2f71e5;
+  color: white;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  width: 160px;
+  height: 64px;
+  position: absolute;
+  right: 0; /* Positions the button to the right inside the container */
+  top: 50%; /* Vertically center the button */
+  transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+  .searchForm {
+    margin: 48px auto;
+  }
+
+  .searchForm__input {
+    font-size: 16px;
+    height: 56px;
+    padding: 10px 30px 10px 20px;
+  }
+
+  .searchForm__button {
+    width: 140px;
+    height: 56px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchForm {
+    max-width: 100%; /* Make the form take up full width of the screen */
+    padding: 0 16px; /* Add some padding for small screens */
+    margin-top: 30px;
+  }
+
+  .searchForm__input {
+    width: 100%; /* Ensure input takes up full width */
+    padding: 10px 20px; /* Adjust padding for smaller screens */
+    height: 56px;
+  }
+
+  .searchForm__button {
+    position: relative; /* Reset position */
+    width: 100%; /* Make the button take full width */
+    height: 56px; /* Adjust the height for smaller screens */
+    margin-top: 10px; /* Adds spacing between input and button */
+    transform: none; /* No need to vertically center the button */
+  }
+}

@@ -1,0 +1,153 @@
+.modal {
+  text-align: left;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0000004d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: visibility 0.5s ease, opacity 0.5s ease;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal_opened {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__close {
+  background-image: url(../../assets/close.png);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  right: -35px;
+  top: -45px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 22px;
+  background-color: white;
+  width: 100%;
+  max-width: 430px;
+  height: auto;
+  border-radius: 16px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 36px;
+  margin: 0 auto;
+}
+
+.modal__title {
+  font-family: "Roboto";
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 28.13px;
+}
+
+.modal__form {
+  font-weight: 700;
+  line-height: 20px;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.modal__label {
+  color: #2f71e5;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.52px;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+.modal__input {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.94px;
+  display: block;
+  color: #00000080;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 12px;
+  margin-bottom: 3px;
+  width: 100%;
+}
+
+.modal__error {
+  color: red;
+}
+
+.modal__submit {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  background: #e6e8eb;
+  color: #b6bcbf;
+  border: none;
+  width: 100%;
+  height: 64px;
+  border-radius: 100px;
+  cursor: pointer;
+  padding: 12px 0;
+  margin-top: 30px;
+}
+
+.modal__submit_disabled {
+  opacity: 0.5;
+}
+
+.modal__submit_active {
+  background: #2f71e5;
+  color: white;
+  cursor: pointer;
+}
+
+.modal__footer-text {
+  text-align: center;
+  margin-top: 16px;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.94px;
+}
+
+.modal__footer-link {
+  color: blue;
+  border: none;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.94px;
+  text-align: center;
+  cursor: pointer;
+  background: transparent;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 550px) {
+  .modal__footer-link {
+    bottom: 48px;
+  }
+}
