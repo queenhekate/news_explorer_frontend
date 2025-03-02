@@ -39,17 +39,33 @@
   width: 24px;
 }
 
+@media (max-width: 768px) {
+  .footer {
+    height: 64px;
+    padding: 0 40px;
+  }
+}
+
 @media (max-width: 480px) {
   .footer {
     height: 176px;
     padding: 16px;
     flex-direction: column-reverse;
+    align-items: stretch;
   }
 
   .footer__links {
     display: flex;
     justify-content: space-between;
     text-align: left;
+  }
+
+  .footer__links-mobileView {
+    width: 200px;
+    height: 72px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
   }
 
   .footer__links-text {

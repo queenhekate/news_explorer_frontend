@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import "./Navigation.css";
-import dropdownIcon from "../../assets/menu.png";
+import dropdownIconHome from "../../assets/menu.png";
+import dropdownIcon from "../../assets/menu-black.png";
 import ReusableButton from "../ReuseableButton/ReusableButton";
 import closeIcon from "../../assets/close.png";
 import logoutIcon from "../../assets/logout.png";
@@ -11,6 +12,8 @@ import { CurrentUserContext } from "../../context/CurrentUserContext";
 function Navigation({ handleLogoutClick, handleSignInClick }) {
   const [isOpen, setIsOpen] = useState(false);
   const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
+  console.log(currentUser);
+  console.log(isLoggedIn);
   const location = useLocation();
 
   function toggleDropdown(event) {
@@ -113,13 +116,20 @@ function Navigation({ handleLogoutClick, handleSignInClick }) {
 
       {/* Dropdown Menu Button for Small Screens */}
       <button className="navigation__dropdown" onClick={toggleDropdown}>
-        <img src={dropdownIcon} alt="Menu" className="navigation__menu-image" />
+        <img
+          src={isSavedNewsPage ? dropdownIcon : dropdownIconHome}
+          alt="Menu"
+          className="navigation__menu-image"
+        />
       </button>
 
       {/* Dropdown Menu Items */}
       {isOpen && (
         <div className="navigation__dropdown-content">
           <div className="navigation__dropdown-header">
+            <NavLink exact to="/" className="navigation__logo-link">
+              <p className="navigation__logo">NewsExplorer</p>
+            </NavLink>
             <button className="navigation__close" onClick={toggleDropdown}>
               <img
                 src={closeIcon}
@@ -129,26 +139,38 @@ function Navigation({ handleLogoutClick, handleSignInClick }) {
             </button>
           </div>
           <div className="navigation__dropdown-container">
-            <NavLink
-              exact
-              to="/"
-              className="navigation__link"
-              onClick={toggleDropdown}
-            >
-              <ReusableButton text="Home" className="navigation__home" />
-            </NavLink>
-            {isLoggedIn && (
-              <ReusableButton
-                text="Saved Articles"
-                className="navigation__saved"
+            <div className="navigation__dropdown-links">
+              <NavLink
+                exact
+                to="/"
+                className="navigation__link"
                 onClick={toggleDropdown}
+              >
+                <ReusableButton text="Home" className="navigation__home" />
+              </NavLink>
+              {/* {isLoggedIn && (
+                <NavLink exact to="/saved-news">
+                  <ReusableButton
+                    text="Saved Articles"
+                    className="navigation__saved"
+                    onClick={toggleDropdown}
+                  />
+                </NavLink>
+              )} */}
+            </div>
+            {!isLoggedIn ? (
+              <ReusableButton
+                text="Sign In"
+                className="navigation__signin"
+                onClick={handleSignInClick}
+              />
+            ) : (
+              <ReusableButton
+                text="Sign Out"
+                className="navigation__signin"
+                onClick={handleLogoutClick}
               />
             )}
-            <ReusableButton
-              text="Sign In"
-              className="navigation__signin"
-              onClick={handleSignInClick}
-            />
           </div>
         </div>
       )}

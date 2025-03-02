@@ -68,6 +68,10 @@ body {
   .main__preloader-container {
     height: 200px;
   }
+
+  .main__noResults {
+    margin: 16px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -76,6 +80,6 @@ body {
   }
 
   .main__preloader-container {
-    height: 150px;
+    height: 250px;
   }
 }

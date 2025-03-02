@@ -44,7 +44,7 @@
 
 @media (max-width: 768px) {
   .searchForm {
-    margin-top: 50px;
+    margin: 48px auto;
   }
 
   .searchForm__input {

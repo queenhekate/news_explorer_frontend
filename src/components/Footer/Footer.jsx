@@ -11,6 +11,7 @@ function Footer() {
         © 2025 Supersite, Powered by News API
       </div>
       <ul className="footer__links">
+        <div className="footer__links-mobileView">
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -21,6 +22,7 @@ function Footer() {
         >
           <li>TripleTen</li>
         </a>
+        </div>
         <li>
           <a
             href="https://github.com/queenhekate/queenhekate"

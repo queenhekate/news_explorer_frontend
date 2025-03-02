@@ -234,6 +234,8 @@ function App() {
                     handleLogoutClick={handleLogoutClick}
                     handleSignInClick={openLoginModal}
                     onSearch={handleSearch}
+                    currentUser={currentUser}
+                    isLoggedIn={isLoggedIn}
                   />
                   <IsLoadingContext.Provider
                     value={{ isLoading, setIsLoading }}

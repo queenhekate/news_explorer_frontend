@@ -84,6 +84,7 @@
   .newsCard__list {
     gap: 10px;
     flex-direction: column;
+    margin: 0;
   }
 
   .newsCard__btn {
