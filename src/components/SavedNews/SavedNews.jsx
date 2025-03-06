@@ -16,10 +16,10 @@ function SavedNews({
   console.log("savedArticles:", savedArticles); // Log the savedArticles array
 
   return (
-    <div className="savedNews">
+    <div className="saved-news">
       <Navigation />
       <Profile savedArticles={savedArticles} searchQuery={searchQuery} />
-      <div className="savedNews__content">
+      <div className="saved-news__content">
         {savedArticles.map((card) => {
           console.log("Current card:", card); // Log each card object
           return (

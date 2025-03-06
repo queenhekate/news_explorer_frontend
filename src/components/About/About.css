@@ -4,16 +4,15 @@
   justify-content: space-around;
   align-items: center;
   max-width: 1400px;
-  gap: 56px;
   margin: 0 auto;
-  padding: 16px;
+  gap: 4%;
+  padding: 0 15% 0 7%;
 }
 
 .about__photo-container {
-  width: 424px;
-  height: 424px;
+  width: 464px;
+  height: 464px;
   border-radius: 50%;
-  object-fit: cover;
   overflow: hidden;
   margin: 80px auto;
   display: flex;
@@ -51,9 +50,13 @@
 }
 
 @media (max-width: 768px) {
+  .about {
+    padding: 0 8%;
+  }
   .about__photo-container {
     width: 232px;
     height: 232px;
+    border-radius: 50%;
   }
   .about__text {
     width: 424px;
@@ -63,11 +66,13 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .about {
     flex-direction: column;
-    margin: 0 16px;
+    margin: 0 auto;
     gap: 0;
+    padding: 0 10%;
+    margin-bottom: 20px;
   }
   .about__text {
     width: 288px;
@@ -75,5 +80,6 @@
   .about__photo-container {
     width: 272px; /* Set the container width */
     height: 272px; /* Set the container height to match the width */
+    border-radius: 50%;
   }
 }

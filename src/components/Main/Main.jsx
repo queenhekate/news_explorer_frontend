@@ -13,7 +13,7 @@ function Main({
   savedArticles,
   onSaveArticle,
   onDeleteArticle,
-  searchQuery
+  searchQuery,
 }) {
   const [articlesToShow, setArticlesToShow] = React.useState(3);
 
@@ -27,44 +27,44 @@ function Main({
 
   return (
     <div className="main">
-      {isLoading ? (
-        <div className="main__preloader-container">
-          <Preloader />
-        </div>
-      ) : (
-        <>
-          {errorMessage ? (
-            <div className="main__error-message main__preloader-container">
-              {errorMessage}
-            </div>
-          ) : hasSearched && newsData.length === 0 ? (
-            <div className="main__noResults main__preloader-container">
-              <img
-                src={noResultsIcon}
-                alt="Nothing found"
-                className="main__noResults-icon"
-              />
-              <h2>Nothing found</h2>
-              <p className="main__noResults-text">
-                Sorry, but nothing matched your search terms.
-              </p>
-            </div>
-          ) : (
-            newsData.length > 0 && (
-              <NewsCard
-                newsData={newsData}
-                searchQuery={searchQuery}
-                articlesToShow={articlesToShow}
-                handleShowMore={handleShowMore}
-                isLoggedIn={isLoggedIn}
-                savedArticles={savedArticles}
-                onSaveArticle={onSaveArticle}
-                onDeleteArticle={onDeleteArticle}
-              />
-            )
-          )}
-        </>
-      )}
+        {isLoading ? (
+          <div className="main__preloader-container">
+            <Preloader />
+          </div>
+        ) : (
+          <>
+            {errorMessage ? (
+              <div className="main__error-message main__preloader-container">
+                {errorMessage}
+              </div>
+            ) : hasSearched && newsData.length === 0 ? (
+              <div className="main__noResults main__preloader-container">
+                <img
+                  src={noResultsIcon}
+                  alt="Nothing found"
+                  className="main__noResults-icon"
+                />
+                <h2>Nothing found</h2>
+                <p className="main__noResults-text">
+                  Sorry, but nothing matched your search terms.
+                </p>
+              </div>
+            ) : (
+              newsData.length > 0 && (
+                <NewsCard
+                  newsData={newsData}
+                  searchQuery={searchQuery}
+                  articlesToShow={articlesToShow}
+                  handleShowMore={handleShowMore}
+                  isLoggedIn={isLoggedIn}
+                  savedArticles={savedArticles}
+                  onSaveArticle={onSaveArticle}
+                  onDeleteArticle={onDeleteArticle}
+                />
+              )
+            )}
+          </>
+        )}
     </div>
   );
 }

@@ -67,7 +67,7 @@
 
 @media (max-width: 480px) {
   .header__content {
-    padding: 0 10px;
+    padding: 0 25px;
   }
   .header__title {
     font-size: 36px;

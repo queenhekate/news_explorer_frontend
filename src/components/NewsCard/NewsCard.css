@@ -1,4 +1,4 @@
-.newsCard {
+.news-card {
   background-color: #f5f6f7;
   border-radius: 8px;
   text-align: left;
@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 
-.newsCard__container {
+.news-card__container {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
@@ -15,7 +15,7 @@
   gap: 16px;
 }
 
-.newsCard__text {
+.news-card__text {
   font-family: "Roboto-Slab";
   font-weight: 400;
   font-size: 40px;
@@ -23,14 +23,14 @@
   letter-spacing: 0px;
 }
 
-.newsCard__list {
+.news-card__list {
   display: flex;
   justify-content: center;
   gap: 16px;
   margin: 64px auto;
 }
 
-.newsCard__btn-container {
+.news-card__btn-container {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -38,7 +38,7 @@
   margin-top: 54px;
 }
 
-.newsCard__btn {
+.news-card__btn {
   font-family: "Roboto";
   font-weight: 500;
   font-size: 18px;
@@ -56,38 +56,74 @@
 }
 
 /* Media Queries for Responsiveness */
+@media (max-width: 1300px) {
+  .news-card {
+    padding: 0;
+  }
+  .news-card__container {
+    margin: 0;
+  }
+}
+
+@media (max-width: 1250px) {
+  .news-card__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .news-card__text {
+    margin: 10px;
+  }
+}
+@media (max-width: 860px) {
+  .news-card__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 @media (max-width: 768px) {
-  .newsCard__text {
-    font-size: 20px;
-    margin-bottom: 15px;
+  .news-card__text {
+    font-size: 30px;
+    margin: 10px 0;
   }
 
-  .newsCard__list {
+  .news-card__container {
+    height: auto;
+  }
+
+  .news-card__list {
     gap: 15px;
+    margin: 0;
   }
 
-  .newsCard__btn {
+  .news-card__btn {
     padding: 8px 16px;
     font-size: 14px;
   }
 }
 
-@media (max-width: 480px) {
-  .newsCard__container {
+@media (max-width: 720px) {
+  .news-card__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 510px) {
+  .news-card {
+    padding: 0;
+  }
+  .news-card__container {
     grid-template-columns: 1fr;
   }
-  .newsCard__text {
-    font-size: 18px;
+  .news-card__text {
+    font-size: 30px;
     margin-bottom: 10px;
   }
 
-  .newsCard__list {
+  .news-card__list {
     gap: 10px;
     flex-direction: column;
     margin: 0;
   }
 
-  .newsCard__btn {
+  .news-card__btn {
     padding: 6px 12px;
     font-size: 12px;
   }
