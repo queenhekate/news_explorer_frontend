@@ -9,7 +9,7 @@
   width: 90%;
   border: 1px solid #ccc;
   border-radius: 100px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
@@ -40,6 +40,15 @@
   right: 0; /* Positions the button to the right inside the container */
   top: 50%; /* Vertically center the button */
   transform: translateY(-50%);
+}
+
+.search-form__button:hover {
+  background: #347eff;
+}
+
+.search-form__button:active {
+  background: #2A65CC;
+
 }
 
 @media (max-width: 768px) {

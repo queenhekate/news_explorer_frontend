@@ -1,5 +1,5 @@
 import "./SearchForm.css";
-import React, { useState } from "react";
+import { useState } from "react";
 //import {baseURL} from "../../utils/constants"; 
 
 function SearchForm({onSearch}) {
