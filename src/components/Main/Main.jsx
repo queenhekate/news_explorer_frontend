@@ -2,7 +2,7 @@ import React from "react";
 import "./Main.css";
 import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
-import noResultsIcon from "../../assets/not-found.png";
+import noResultsIcon from "../../assets/not-found.svg";
 
 function Main({
   newsData,
@@ -13,7 +13,7 @@ function Main({
   savedArticles,
   onSaveArticle,
   onDeleteArticle,
-  searchQuery
+  searchQuery,
 }) {
   const [articlesToShow, setArticlesToShow] = React.useState(3);
 

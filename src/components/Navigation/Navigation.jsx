@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import "./Navigation.css";
-import dropdownIconHome from "../../assets/menu.png";
-import dropdownIcon from "../../assets/menu-black.png";
+import dropdownIconHome from "../../assets/menu-white.svg";
+import dropdownIcon from "../../assets/menu-black.svg";
 import ReusableButton from "../ReuseableButton/ReusableButton";
-import closeIcon from "../../assets/close.png";
-import logoutIcon from "../../assets/logout.png";
-import logoutIconHome from "../../assets/logout-white.png";
+import closeIcon from "../../assets/close-white.svg";
+import logoutIcon from "../../assets/logout-black.svg";
+import logoutIconHome from "../../assets/logout-white.svg";
 import { CurrentUserContext } from "../../context/CurrentUserContext";
 
 function Navigation({ handleLogoutClick, handleSignInClick }) {

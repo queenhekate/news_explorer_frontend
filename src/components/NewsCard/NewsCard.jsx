@@ -23,12 +23,12 @@ function NewsCard({
   };
 
   return (
-    <div className="newsCard">
-      {showText && <p className="newsCard__text">Search Results</p>}
-      <div className="newsCard__container">
+    <div className="news-card">
+      {showText && <p className="news-card__text">Search Results</p>}
+      <div className="news-card__container">
         {Array.isArray(newsData) && newsData.length > 0 ? (
           newsData.slice(0, articlesToShow).map((card, index) => (
-            <div className="newsCard__list" key={index}>
+            <div className="news-card__list" key={index}>
               {/* {newsData.slice(0, articlesToShow).map((card, index) => ( */}
               <Card
                 title={card.title}
@@ -49,12 +49,12 @@ function NewsCard({
             </div>
           ))
         ) : (
-          <p className="newsCard__no-results"></p>
+          <p className="news-card__no-results"></p>
         )}
       </div>
       {showButton && articlesToShow < newsData.length && (
-        <div className="newsCard__btn-container">
-          <button className="newsCard__btn" onClick={handleShowMore}>
+        <div className="news-card__btn-container ">
+          <button className="news-card__btn" onClick={handleShowMore}>
             Show More
           </button>
         </div>

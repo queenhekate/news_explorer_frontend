@@ -2,7 +2,7 @@
 .navigation {
   width: 100%;
   display: flex;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
@@ -179,13 +179,13 @@
   .navigation {
     padding: 0 20px;
     height: 70px;
-    justify-content: center;
   }
   .navigation__user {
     font-size: 16px; /* Example of a style */
   }
   .navigation__buttons {
     padding-left: 20px;
+    gap: 20px;
   }
   .navigation__signin {
     width: 152px;
@@ -193,6 +193,9 @@
   .navigation__home,
   .navigation__saved {
     padding: 21px 0;
+  }
+  .navigation__signout-btn {
+    margin-right: 25px;
   }
 }
 
@@ -209,6 +212,7 @@
   /* Hide the main nav buttons and show the dropdown button */
   .navigation__buttons {
     display: none;
+    gap: 10px;
   }
 
   /* Show the dropdown button on small screens */
@@ -224,6 +228,10 @@
 
   .navigation__menu-image {
     width: 24px;
+    margin-right: 25px;
+  }
+  .navigation__close-image {
+    margin-right: 10px;
   }
 
   /* Style dropdown content for small screens */
@@ -255,6 +263,13 @@
   .navigation__signin {
     width: calc(100vw - 32px);
     height: 56px;
-    margin: 0 16px 24px;
+    margin: 16px auto;
+  }
+}
+@media (max-width: 320px) {
+  .navigation__signin {
+    width: calc(100vw - 16px);
+    height: 56px;
+    margin: 8px auto;
   }
 }

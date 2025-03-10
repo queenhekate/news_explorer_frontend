@@ -1,7 +1,8 @@
-import React from "react";
 import "../ModalWithForm/ModalWithForm.css";
 
-function RegistrationCompleteModal({ isOpen, onClose }) {
+function RegistrationCompleteModal({ isOpen, onClose, onFooterLinkClick }) {
+
+  const footerLinkText = "Go to Login";
   if (!isOpen) {
     return null;
   }

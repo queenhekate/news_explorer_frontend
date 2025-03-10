@@ -1,8 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
-import Github from "../../assets/github.png";
-import LinkedIn from "../../assets/linkedin.png";
+import Github from "../../assets/github.svg";
+import LinkedIn from "../../assets/fb.svg";
 
 function Footer() {
   return (

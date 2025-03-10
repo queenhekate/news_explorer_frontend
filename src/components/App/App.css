@@ -11,5 +11,12 @@ html {
 }
 
 .page {
+  background-color: black;
+}
+
+.page__content {
+  max-width: 1425px;
   background-color: #ffffff;
+  margin: 0 auto;
+  padding: 0;
 }

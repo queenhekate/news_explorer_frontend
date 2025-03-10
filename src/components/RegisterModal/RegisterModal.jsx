@@ -1,6 +1,5 @@
 // import React, { useState } from 'react';
-import React, { useState } from "react";
-import "./RegisterModal.css";
+import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
 import RegistrationCompleteModal from "../RegistrationCompleteModal/RegistrationCompleteModal";
@@ -13,7 +12,8 @@ function RegisterModal({
   onFooterLinkClick,
   title,
 }) {
-  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
+  const { values, handleChange, errors, isValid, resetForm } =
+    useFormWithValidation();
   const [isRegistrationComplete, setIsRegistrationComplete] = useState(false);
 
   const handleSubmit = (event) => {

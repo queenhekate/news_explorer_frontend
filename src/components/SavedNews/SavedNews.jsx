@@ -1,10 +1,8 @@
-import { useContext } from "react";
 import "./SavedNews.css";
 import Navigation from "../Navigation/Navigation";
 import Profile from "../Profile/Profile";
 import Card from "../Card/Card";
 import Footer from "../Footer/Footer";
-import { CurrentUserContext } from "../../context/CurrentUserContext";
 
 function SavedNews({
   savedArticles,
@@ -12,14 +10,11 @@ function SavedNews({
   isLoggedIn,
   searchQuery,
 }) {
-  const { currentUser } = useContext(CurrentUserContext);
-  console.log("savedArticles:", savedArticles); // Log the savedArticles array
-
   return (
-    <div className="savedNews">
+    <div className="saved-news">
       <Navigation />
       <Profile savedArticles={savedArticles} searchQuery={searchQuery} />
-      <div className="savedNews__content">
+      <div className="saved-news__content">
         {savedArticles.map((card) => {
           console.log("Current card:", card); // Log each card object
           return (

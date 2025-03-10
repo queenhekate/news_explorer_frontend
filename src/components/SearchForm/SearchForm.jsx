@@ -1,5 +1,5 @@
 import "./SearchForm.css";
-import React, { useState } from "react";
+import { useState } from "react";
 //import {baseURL} from "../../utils/constants"; 
 
 function SearchForm({onSearch}) {
@@ -18,20 +18,20 @@ function SearchForm({onSearch}) {
   };
 
   return (
-    <div className="searchForm">
+    <div className="search-form">
       <form onSubmit={handleSearchSubmit}>
         <input
           type="text"
           value={searchQuery}
           onChange={handleInputChange}
           placeholder="Enter topic"
-          className="searchForm__input"
+          className="search-form__input"
         />
-        <button type="submit" className="searchForm__button">
+        <button type="submit" className="search-form__button">
           Search
         </button>
       </form>
-      <div className="searchForm__results"></div>
+      <div className="search-form__results"></div>
     </div>
   );
 }
