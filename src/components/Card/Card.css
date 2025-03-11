@@ -43,7 +43,7 @@
   position: absolute;
   top: 0px;
   right: 45px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 14px;
   color: black;
   font-weight: 500;
@@ -101,7 +101,7 @@
   position: absolute;
   top: 0px;
   right: 45px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 14px;
   color: black;
   font-weight: 500;
@@ -139,7 +139,7 @@
 }
 
 .card__date {
-  font-family: "Source Sans 3", sans-serif;
+  font-family: "Source Sans 3", Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
@@ -150,7 +150,7 @@
 
 .card__title {
   margin-top: 5px;
-  font-family: "Roboto-Slab";
+  font-family: "Roboto-Slab", Arial, sans-serif;
   font-weight: 400;
   font-size: 26px;
   line-height: 30px;
@@ -159,7 +159,7 @@
 .card__description {
   color: #555;
   margin: 10px 0;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
@@ -174,16 +174,15 @@
 
 .card__source {
   color: #b6bcbf;
-  font-family: "Roboto-Slab";
+  font-family: "Roboto-Slab", Arial, sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0.4px;
   text-transform: uppercase;
-  bottom: 10px;
-  position: absolute;
   left: 24px;
   right: 24px;
+  margin: 10px 0;
 }
 
 /* Media Queries for Responsiveness */
@@ -286,6 +285,11 @@
     margin-top: 20px;
     font-size: 12px;
     line-height: 18px;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .card__save-btn {
     top: 16px;

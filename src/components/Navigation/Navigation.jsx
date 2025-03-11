@@ -9,7 +9,10 @@ import logoutIcon from "../../assets/logout-black.svg";
 import logoutIconHome from "../../assets/logout-white.svg";
 import { CurrentUserContext } from "../../context/CurrentUserContext";
 
-function Navigation({ handleLogoutClick, handleSignInClick }) {
+function Navigation({ handleLogoutClick, 
+  handleSignInClick, 
+  isLoginModalOpen, 
+  isRegisterModalOpen }) {
   const [isOpen, setIsOpen] = useState(false);
   const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
   console.log(currentUser);
@@ -35,6 +38,11 @@ function Navigation({ handleLogoutClick, handleSignInClick }) {
   }, []);
 
   const isSavedNewsPage = location.pathname === "/saved-news";
+
+  const handleSignInAndCloseDropdown = (event) => {
+    handleSignInClick(event);
+    toggleDropdown(event);
+  };
 
   return (
     <div className="navigation">
@@ -117,9 +125,11 @@ function Navigation({ handleLogoutClick, handleSignInClick }) {
       {/* Dropdown Menu Button for Small Screens */}
       <button className="navigation__dropdown" onClick={toggleDropdown}>
         <img
-          src={isSavedNewsPage ? dropdownIcon : dropdownIconHome}
+          src={isSavedNewsPage ? dropdownIcon : dropdownIconHome} 
           alt="Menu"
-          className="navigation__menu-image"
+          className={`navigation__menu-image ${
+            isLoginModalOpen || isRegisterModalOpen ? "navigation__menu-image_hidden" : ""
+          }`}
         />
       </button>
 
@@ -162,13 +172,13 @@ function Navigation({ handleLogoutClick, handleSignInClick }) {
               <ReusableButton
                 text="Sign In"
                 className="navigation__signin"
-                onClick={handleSignInClick}
+                onClick={handleSignInAndCloseDropdown}
               />
             ) : (
               <ReusableButton
                 text="Sign Out"
                 className="navigation__signin"
-                onClick={handleLogoutClick}
+                onClick={handleSignInAndCloseDropdown}
               />
             )}
           </div>

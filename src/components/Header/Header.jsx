@@ -9,6 +9,8 @@ function Header({
   onSearch,
   currentUser,
   isLoggedIn,
+  isLoginModalOpen,
+  isRegisterModalOpen
 }) {
   // const [searchInput, setSearchInput] = useState("");
   // const handleInputChange = (event) => {
@@ -28,6 +30,8 @@ function Header({
         handleSignInClick={handleSignInClick}
         currentUser={currentUser}
         isLoggedIn={isLoggedIn}
+        isLoginModalOpen={isLoginModalOpen}
+        isRegisterModalOpen={isRegisterModalOpen}
       />
       <div className="header__content">
         <h1 className="header__title">What&apos;s going on in the world?</h1>

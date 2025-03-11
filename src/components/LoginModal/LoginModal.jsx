@@ -1,6 +1,5 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
-import "./LoginModal.css";
 
 function LoginModal({
   isOpen,
