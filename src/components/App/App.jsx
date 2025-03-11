@@ -198,7 +198,7 @@ function App() {
   const handleDeleteArticle = (publishedAt) => {
     setSavedArticles(
       (prevCards) =>
-        prevCards.filter((card) => card.publishedAt !== publishedAt) //need to change Id to Published At
+        prevCards.filter((card) => card.publishedAt !== publishedAt)
     );
   };
 
@@ -238,6 +238,9 @@ function App() {
                     currentUser={currentUser}
                     isLoggedIn={isLoggedIn}
                     isLoggedInLoading={isLoggedInLoading}
+                    isLoginModalOpen={isLoginModalOpen}
+                    isRegisterModalOpen={isRegisterModalOpen}
+                    
                   />
                   <IsLoadingContext.Provider
                     value={{ isLoading, setIsLoading }}
@@ -252,9 +255,11 @@ function App() {
                       onDeleteArticle={handleDeleteArticle}
                       savedArticles={savedArticles}
                       isLoggedIn={isLoggedIn}
-                    />
+                    >
+                        <About />
+                        </Main>
                   </IsLoadingContext.Provider>
-                  <About />
+                
                   <Footer />
                 </>
               }

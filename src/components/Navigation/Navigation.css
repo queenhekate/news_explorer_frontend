@@ -18,11 +18,12 @@
 
 .navigation__logo {
   color: white;
-  font-family: "Roboto-Slab";
+  font-family: "Roboto-Slab", Arial, sans-serif;;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .navigation__saved-news_logo {
@@ -123,6 +124,10 @@
   height: auto;
 }
 
+.navigation__menu-image_hidden {
+  display: none;
+}
+
 .navigation__dropdown-header {
   width: 100vw;
   height: 56px;
@@ -139,9 +144,9 @@
 .navigation__close-image {
   height: 24px;
   width: 24px;
-  position: absolute; /* Positions the image absolutely within the header */
-  right: 16px; /* Moves the image 16px from the right edge */
-  top: 50%; /* Vertically centers the image */
+  position: absolute;
+  right: 16px;
+  top: 50%; 
   transform: translateY(-50%);
 }
 
@@ -205,17 +210,19 @@
     height: 56px;
     justify-content: space-between;
   }
-  /* Your styles for screens 320px and below go here */
   .navigation__user {
-    font-size: 14px; /* Example of a style */
+    font-size: 14px; 
   }
-  /* Hide the main nav buttons and show the dropdown button */
+
   .navigation__buttons {
     display: none;
     gap: 10px;
   }
 
-  /* Show the dropdown button on small screens */
+  .navigation__logo {
+    font-size: 16px;
+  }
+
   .navigation__dropdown {
     display: block;
   }
@@ -228,10 +235,12 @@
 
   .navigation__menu-image {
     width: 24px;
-    margin-right: 25px;
+    margin-right: 10px;
+    cursor: pointer;
   }
   .navigation__close-image {
     margin-right: 10px;
+    cursor: pointer;
   }
 
   /* Style dropdown content for small screens */
@@ -251,6 +260,7 @@
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
+    cursor: pointer;
   }
 
   .navigation__home,
@@ -258,18 +268,18 @@
     margin: 0;
     padding: 0 16px;
     line-height: 56px;
+    cursor: pointer;
   }
 
   .navigation__signin {
-    width: calc(100vw - 32px);
+    width: 100vw;
     height: 56px;
     margin: 16px auto;
+    cursor: pointer;
   }
 }
 @media (max-width: 320px) {
   .navigation__signin {
-    width: calc(100vw - 16px);
-    height: 56px;
     margin: 8px auto;
   }
 }

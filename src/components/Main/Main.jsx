@@ -3,6 +3,7 @@ import "./Main.css";
 import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
 import noResultsIcon from "../../assets/not-found.svg";
+import About from "../About/About";
 
 function Main({
   newsData,
@@ -17,15 +18,12 @@ function Main({
 }) {
   const [articlesToShow, setArticlesToShow] = React.useState(3);
 
-  if (!hasSearched) {
-    return null;
-  }
-
   const handleShowMore = () => {
     setArticlesToShow((prev) => prev + 3);
   };
 
   return (
+    <>
     <div className="main">
       {isLoading ? (
         <div className="main__preloader-container">
@@ -66,6 +64,8 @@ function Main({
         </>
       )}
     </div>
+    <About />
+    </>
   );
 }
 

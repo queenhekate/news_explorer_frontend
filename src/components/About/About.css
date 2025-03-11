@@ -1,12 +1,13 @@
 .about {
   display: flex;
+  background-color: #ffffff;
   color: #1a1b22;
   justify-content: space-around;
   align-items: center;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 0;
   gap: 4%;
-  padding: 0 15% 0 7%;
+  padding: 0;
 }
 
 .about__photo-container {
@@ -51,7 +52,7 @@
 
 @media (max-width: 768px) {
   .about {
-    padding: 0 8%;
+    padding: 0;
   }
   .about__photo-container {
     width: 232px;
@@ -60,6 +61,7 @@
   }
   .about__text {
     width: 424px;
+    padding-right: 10px;
   }
   .about__heading {
     font-size: 30x;
@@ -69,9 +71,7 @@
 @media (max-width: 600px) {
   .about {
     flex-direction: column;
-    margin: 0 auto;
     gap: 0;
-    padding: 0 10%;
     margin-bottom: 20px;
   }
   .about__text {

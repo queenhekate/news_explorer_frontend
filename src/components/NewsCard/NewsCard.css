@@ -21,6 +21,7 @@
   font-size: 40px;
   line-height: 46px;
   letter-spacing: 0px;
+  margin: 20px 5vw;
 }
 
 .news-card__list {
@@ -39,7 +40,7 @@
 }
 
 .news-card__btn {
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
@@ -47,7 +48,7 @@
   text-align: center;
   cursor: pointer;
   margin: 0 auto;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 80px;
   border: none;
   width: 288px;
@@ -73,9 +74,6 @@
   .news-card__container {
     grid-template-columns: repeat(2, 1fr);
   }
-  .news-card__text {
-    margin: 10px;
-  }
 }
 @media (max-width: 860px) {
   .news-card__container {
@@ -85,11 +83,13 @@
 @media (max-width: 768px) {
   .news-card__text {
     font-size: 30px;
-    margin: 10px 0;
+    margin: 20px 2vw;
   }
 
   .news-card__container {
     height: auto;
+    margin: 0 auto;
+    padding: 10px;
   }
 
   .news-card__list {
@@ -118,7 +118,7 @@
   }
   .news-card__text {
     font-size: 30px;
-    margin-bottom: 10px;
+    margin: 20px 5vw;
   }
 
   .news-card__list {
