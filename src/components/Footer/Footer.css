@@ -1,0 +1,88 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0px;
+  height: 80px;
+  align-items: center;
+  padding: 0 100px;
+}
+
+.footer__author {
+  color: #b6bcbf;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.footer__links {
+  display: flex;
+  color: #1a1b22;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  gap: 40px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.footer__links-mobileView {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.footer__links a {
+  text-decoration: none;
+  color: inherit;
+  display: inline;
+}
+
+.footer__linkedIn,
+.footer__gitHub {
+  height: 24px;
+  width: 24px;
+  cursor: pointer
+}
+
+@media (max-width: 768px) {
+  .footer {
+    height: 64px;
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    height: 176px;
+    padding: 16px;
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .footer__links {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    margin-bottom: 15px;
+  }
+
+  .footer__links-mobileView {
+    width: 200px;
+    height: 72px;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .footer__links-text {
+    width: 200px;
+    height: 74px;
+    gap: 20px;
+  }
+
+  .footer__author {
+    text-align: center;
+    margin-bottom: 22px;
+  }
+}

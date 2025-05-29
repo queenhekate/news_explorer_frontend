@@ -1,0 +1,81 @@
+.header {
+  background-color: transparent;
+  color: white;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+  background-image: url("../../assets/background.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 0;
+  height: auto;
+  margin: 0 auto;
+}
+
+.header::after {
+  z-index: 11;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.header__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+  justify-content: center;
+  width: 608px;
+  text-align: left;
+  padding-bottom: 80px;
+}
+
+.header__title {
+  font-family: "Roboto-Slab", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 64px;
+  margin: 80px 0 0;
+}
+
+.header__description {
+  font-family: "Roboto", Arial, sans-serif;;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .header__content {
+    width: 100%;
+    max-width: 432px;
+    padding: 0 20px;
+  }
+  .header__title {
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-size: 36px;
+    line-height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__content {
+    padding: 0 25px;
+  }
+  .header__title {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  .header__description {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+}
